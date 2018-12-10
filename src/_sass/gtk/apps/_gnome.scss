@@ -87,12 +87,10 @@
   }
 }
 
-%file_manager_img,
 .nautilus-window,
 .nautilus-window notebook,
 .nautilus-window notebook > stack {
   background-image: none;
-  // @extend %nautilus_backimage;
 }
 
 .nautilus-window {

@@ -57,13 +57,11 @@
   }
 
   // Icon view container
-  .nemo-window-pane {
-    notebook {
-      scrolledwindow.view {
-        @extend %file_manager_img;
-      }
-    }
-  }
+  // .nemo-window-pane {
+  //   notebook {
+  //     scrolledwindow.view { }
+  //   }
+  // }
 
   .primary-toolbar {
     padding-top: 0;
@@ -85,27 +83,9 @@
   .primary-toolbar .linked:not(.vertical):not(.stack-switcher).path-bar,
   .primary-toolbar widget.linked.raised:not(.vertical):not(.path-bar) {
     button {
-      color: $header_fg;
-      background-color: transparent;
-      border: none;
-      margin-top: 4px;
-      margin-bottom: 4px;
-
-      &:hover {
-        color: $alt_header_fg;
-        border-image: radial-gradient(circle closest-corner at center calc(100% - 1px),
-                                      rgba($selected_bg_color, 0.5) 100%,
-                                      transparent 0%)
-                                      0 0 2 / 0 0 2px;
-      }
-      &:active, &:checked {
-        border-image: radial-gradient(circle closest-corner at center calc(100% - 1px),
-                                      $selected_bg_color 100%,
-                                      transparent 0%)
-                                      0 0 2 / 0 0 2px;
-      }
-      &:disabled { color: rgba($header_fg, 0.5); }
-      &, &:hover, &:active, &:checked, &:disabled { border-radius: 0; }
+      margin: 6px 2px 6px 2px;
+      padding: 0;
+      @extend %pathbar_box_button;
     }
   }
 

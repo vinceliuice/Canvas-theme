@@ -1981,14 +1981,12 @@ headerbar .linked:not(.vertical):not(.stack-switcher).path-bar > button, .nemo-w
 
 headerbar .linked:not(.vertical):not(.stack-switcher).path-bar > button:hover, .nemo-window .primary-toolbar .linked:not(.vertical):not(.stack-switcher).path-bar > button:hover {
   color: rgba(255, 255, 255, 0.95);
-  box-shadow: inset 0 -2px rgba(118, 145, 252, 0.5);
+  background-color: rgba(0, 0, 0, 0.15);
 }
 
 headerbar .linked:not(.vertical):not(.stack-switcher).path-bar > button:active, .nemo-window .primary-toolbar .linked:not(.vertical):not(.stack-switcher).path-bar > button:active, headerbar .linked:not(.vertical):not(.stack-switcher).path-bar > button:checked, .nemo-window .primary-toolbar .linked:not(.vertical):not(.stack-switcher).path-bar > button:checked {
-  transition: box-shadow 0.2s;
-  color: rgba(255, 255, 255, 0.75);
-  background-color: transparent;
-  box-shadow: inset 0 -2px #7691fc;
+  color: #5D7DFB;
+  background-color: rgba(0, 0, 0, 0.25);
 }
 
 headerbar .linked:not(.vertical):not(.stack-switcher).path-bar > button:disabled, .nemo-window .primary-toolbar .linked:not(.vertical):not(.stack-switcher).path-bar > button:disabled {
@@ -4827,27 +4825,33 @@ button.emoji-section:last-child {
 }
 
 .nautilus-window headerbar .path-bar-box .path-bar button.flat.text-button.toggle, .nautilus-window headerbar .path-bar-box .path-bar button.text-button.toggle.sidebar-button, .nautilus-window headerbar .path-bar-box .path-bar button.text-button.toggle.budgie-menu-launcher, .nautilus-window headerbar .path-bar-box .path-bar .budgie-panel .text-button.toggle#tasklist-button, .budgie-panel .nautilus-window headerbar .path-bar-box .path-bar .text-button.toggle#tasklist-button,
-.nautilus-window headerbar .path-bar-box .path-bar button.flat.image-button.text-button.toggle, .nautilus-window headerbar .path-bar-box .path-bar button.image-button.text-button.toggle.sidebar-button, .nautilus-window headerbar .path-bar-box .path-bar button.image-button.text-button.toggle.budgie-menu-launcher {
+.nautilus-window headerbar .path-bar-box .path-bar button.flat.image-button.text-button.toggle, .nautilus-window headerbar .path-bar-box .path-bar button.image-button.text-button.toggle.sidebar-button, .nautilus-window headerbar .path-bar-box .path-bar button.image-button.text-button.toggle.budgie-menu-launcher, .nemo-window .primary-toolbar .linked:not(.vertical):not(.stack-switcher).path-bar button,
+.nemo-window .primary-toolbar widget.linked.raised:not(.vertical):not(.path-bar) button {
   background: none;
   border: none;
   border-radius: 2px;
 }
 
-.nautilus-window headerbar .path-bar-box .path-bar button.flat.text-button.toggle:hover, .nautilus-window headerbar .path-bar-box .path-bar button.text-button.toggle.sidebar-button:hover, .nautilus-window headerbar .path-bar-box .path-bar button.text-button.toggle.budgie-menu-launcher:hover, .nautilus-window headerbar .path-bar-box .path-bar .budgie-panel .text-button.toggle#tasklist-button:hover, .budgie-panel .nautilus-window headerbar .path-bar-box .path-bar .text-button.toggle#tasklist-button:hover {
+.nautilus-window headerbar .path-bar-box .path-bar button.flat.text-button.toggle:hover, .nautilus-window headerbar .path-bar-box .path-bar button.text-button.toggle.sidebar-button:hover, .nautilus-window headerbar .path-bar-box .path-bar button.text-button.toggle.budgie-menu-launcher:hover, .nautilus-window headerbar .path-bar-box .path-bar .budgie-panel .text-button.toggle#tasklist-button:hover, .budgie-panel .nautilus-window headerbar .path-bar-box .path-bar .text-button.toggle#tasklist-button:hover, .nemo-window .primary-toolbar .linked:not(.vertical):not(.stack-switcher).path-bar button:hover,
+.nemo-window .primary-toolbar widget.linked.raised:not(.vertical):not(.path-bar) button:hover {
   color: rgba(255, 255, 255, 0.95);
   background-color: rgba(255, 255, 255, 0.08);
 }
 
-.nautilus-window headerbar .path-bar-box .path-bar button.flat.text-button.toggle:checked, .nautilus-window headerbar .path-bar-box .path-bar button.text-button.toggle.sidebar-button:checked, .nautilus-window headerbar .path-bar-box .path-bar button.text-button.toggle.budgie-menu-launcher:checked, .nautilus-window headerbar .path-bar-box .path-bar .budgie-panel .text-button.toggle#tasklist-button:checked, .budgie-panel .nautilus-window headerbar .path-bar-box .path-bar .text-button.toggle#tasklist-button:checked, .nautilus-window headerbar .path-bar-box .path-bar button.flat.text-button.toggle:active, .nautilus-window headerbar .path-bar-box .path-bar button.text-button.toggle.sidebar-button:active, .nautilus-window headerbar .path-bar-box .path-bar button.text-button.toggle.budgie-menu-launcher:active, .nautilus-window headerbar .path-bar-box .path-bar .budgie-panel .text-button.toggle#tasklist-button:active, .budgie-panel .nautilus-window headerbar .path-bar-box .path-bar .text-button.toggle#tasklist-button:active {
+.nautilus-window headerbar .path-bar-box .path-bar button.flat.text-button.toggle:checked, .nautilus-window headerbar .path-bar-box .path-bar button.text-button.toggle.sidebar-button:checked, .nautilus-window headerbar .path-bar-box .path-bar button.text-button.toggle.budgie-menu-launcher:checked, .nautilus-window headerbar .path-bar-box .path-bar .budgie-panel .text-button.toggle#tasklist-button:checked, .budgie-panel .nautilus-window headerbar .path-bar-box .path-bar .text-button.toggle#tasklist-button:checked, .nemo-window .primary-toolbar .linked:not(.vertical):not(.stack-switcher).path-bar button:checked,
+.nemo-window .primary-toolbar widget.linked.raised:not(.vertical):not(.path-bar) button:checked, .nautilus-window headerbar .path-bar-box .path-bar button.flat.text-button.toggle:active, .nautilus-window headerbar .path-bar-box .path-bar button.text-button.toggle.sidebar-button:active, .nautilus-window headerbar .path-bar-box .path-bar button.text-button.toggle.budgie-menu-launcher:active, .nautilus-window headerbar .path-bar-box .path-bar .budgie-panel .text-button.toggle#tasklist-button:active, .budgie-panel .nautilus-window headerbar .path-bar-box .path-bar .text-button.toggle#tasklist-button:active, .nemo-window .primary-toolbar .linked:not(.vertical):not(.stack-switcher).path-bar button:active,
+.nemo-window .primary-toolbar widget.linked.raised:not(.vertical):not(.path-bar) button:active {
   color: white;
   background-color: rgba(255, 255, 255, 0.15);
 }
 
-.nautilus-window headerbar .path-bar-box .path-bar button.flat.text-button.toggle:disabled, .nautilus-window headerbar .path-bar-box .path-bar button.text-button.toggle.sidebar-button:disabled, .nautilus-window headerbar .path-bar-box .path-bar button.text-button.toggle.budgie-menu-launcher:disabled, .nautilus-window headerbar .path-bar-box .path-bar .budgie-panel .text-button.toggle#tasklist-button:disabled, .budgie-panel .nautilus-window headerbar .path-bar-box .path-bar .text-button.toggle#tasklist-button:disabled {
+.nautilus-window headerbar .path-bar-box .path-bar button.flat.text-button.toggle:disabled, .nautilus-window headerbar .path-bar-box .path-bar button.text-button.toggle.sidebar-button:disabled, .nautilus-window headerbar .path-bar-box .path-bar button.text-button.toggle.budgie-menu-launcher:disabled, .nautilus-window headerbar .path-bar-box .path-bar .budgie-panel .text-button.toggle#tasklist-button:disabled, .budgie-panel .nautilus-window headerbar .path-bar-box .path-bar .text-button.toggle#tasklist-button:disabled, .nemo-window .primary-toolbar .linked:not(.vertical):not(.stack-switcher).path-bar button:disabled,
+.nemo-window .primary-toolbar widget.linked.raised:not(.vertical):not(.path-bar) button:disabled {
   color: rgba(255, 255, 255, 0.45);
 }
 
-.nautilus-window headerbar .path-bar-box .path-bar button.flat.text-button.toggle:checked:disabled, .nautilus-window headerbar .path-bar-box .path-bar button.text-button.toggle.sidebar-button:checked:disabled, .nautilus-window headerbar .path-bar-box .path-bar button.text-button.toggle.budgie-menu-launcher:checked:disabled, .nautilus-window headerbar .path-bar-box .path-bar .budgie-panel .text-button.toggle#tasklist-button:checked:disabled, .budgie-panel .nautilus-window headerbar .path-bar-box .path-bar .text-button.toggle#tasklist-button:checked:disabled {
+.nautilus-window headerbar .path-bar-box .path-bar button.flat.text-button.toggle:checked:disabled, .nautilus-window headerbar .path-bar-box .path-bar button.text-button.toggle.sidebar-button:checked:disabled, .nautilus-window headerbar .path-bar-box .path-bar button.text-button.toggle.budgie-menu-launcher:checked:disabled, .nautilus-window headerbar .path-bar-box .path-bar .budgie-panel .text-button.toggle#tasklist-button:checked:disabled, .budgie-panel .nautilus-window headerbar .path-bar-box .path-bar .text-button.toggle#tasklist-button:checked:disabled, .nemo-window .primary-toolbar .linked:not(.vertical):not(.stack-switcher).path-bar button:checked:disabled,
+.nemo-window .primary-toolbar widget.linked.raised:not(.vertical):not(.path-bar) button:checked:disabled {
   color: rgba(255, 255, 255, 0.45);
   background-color: rgba(255, 255, 255, 0.08);
 }
@@ -4909,7 +4913,6 @@ popover.background label.nautilus-canvas-item.separator, popover.background labe
   background-image: linear-gradient(to bottom, #d4d4d4, #d4d4d4);
 }
 
-.nemo-window .nemo-window-pane notebook scrolledwindow.view, window.thunar notebook scrolledwindow.frame.standard-view,
 .nautilus-window,
 .nautilus-window notebook,
 .nautilus-window notebook > stack {
@@ -6118,37 +6121,8 @@ stack overlay frame searchbar {
 
 .nemo-window .primary-toolbar .linked:not(.vertical):not(.stack-switcher).path-bar button,
 .nemo-window .primary-toolbar widget.linked.raised:not(.vertical):not(.path-bar) button {
-  color: rgba(255, 255, 255, 0.75);
-  background-color: transparent;
-  border: none;
-  margin-top: 4px;
-  margin-bottom: 4px;
-}
-
-.nemo-window .primary-toolbar .linked:not(.vertical):not(.stack-switcher).path-bar button:hover,
-.nemo-window .primary-toolbar widget.linked.raised:not(.vertical):not(.path-bar) button:hover {
-  color: rgba(255, 255, 255, 0.95);
-  border-image: radial-gradient(circle closest-corner at center calc(100% - 1px), rgba(93, 125, 251, 0.5) 100%, transparent 0%) 0 0 2/0 0 2px;
-}
-
-.nemo-window .primary-toolbar .linked:not(.vertical):not(.stack-switcher).path-bar button:active, .nemo-window .primary-toolbar .linked:not(.vertical):not(.stack-switcher).path-bar button:checked,
-.nemo-window .primary-toolbar widget.linked.raised:not(.vertical):not(.path-bar) button:active,
-.nemo-window .primary-toolbar widget.linked.raised:not(.vertical):not(.path-bar) button:checked {
-  border-image: radial-gradient(circle closest-corner at center calc(100% - 1px), #5D7DFB 100%, transparent 0%) 0 0 2/0 0 2px;
-}
-
-.nemo-window .primary-toolbar .linked:not(.vertical):not(.stack-switcher).path-bar button:disabled,
-.nemo-window .primary-toolbar widget.linked.raised:not(.vertical):not(.path-bar) button:disabled {
-  color: rgba(255, 255, 255, 0.5);
-}
-
-.nemo-window .primary-toolbar .linked:not(.vertical):not(.stack-switcher).path-bar button, .nemo-window .primary-toolbar .linked:not(.vertical):not(.stack-switcher).path-bar button:hover, .nemo-window .primary-toolbar .linked:not(.vertical):not(.stack-switcher).path-bar button:active, .nemo-window .primary-toolbar .linked:not(.vertical):not(.stack-switcher).path-bar button:checked, .nemo-window .primary-toolbar .linked:not(.vertical):not(.stack-switcher).path-bar button:disabled,
-.nemo-window .primary-toolbar widget.linked.raised:not(.vertical):not(.path-bar) button,
-.nemo-window .primary-toolbar widget.linked.raised:not(.vertical):not(.path-bar) button:hover,
-.nemo-window .primary-toolbar widget.linked.raised:not(.vertical):not(.path-bar) button:active,
-.nemo-window .primary-toolbar widget.linked.raised:not(.vertical):not(.path-bar) button:checked,
-.nemo-window .primary-toolbar widget.linked.raised:not(.vertical):not(.path-bar) button:disabled {
-  border-radius: 0;
+  margin: 6px 2px 6px 2px;
+  padding: 0;
 }
 
 .nemo-window .sidebar scrolledwindow.frame {

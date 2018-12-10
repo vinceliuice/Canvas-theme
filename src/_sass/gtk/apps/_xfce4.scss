@@ -185,7 +185,6 @@ window.thunar {
       border-top-width: 0; // hide unneeded border
       border-right-width: 0; // hide unneeded border
       background-color: $base_color;
-      @extend %file_manager_img;
 
       .view { @extend %view; background-color: transparent; }
     }
