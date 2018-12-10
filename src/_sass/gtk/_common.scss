@@ -2709,29 +2709,29 @@ row {
 // App Notifications
 //
 .app-notification {
+  margin: 0 8px 8px 8px;
   padding: 10px;
   color: $osd_fg_color;
   background-color: gtkalpha($osd_bg_color, 0.9);
-  background-clip: border-box;
   border-radius: 0 0 2px 2px;
-  border-width: 0 1px 1px 1px;
-  border-style: solid;
-  border-color: $osd_button_border;
+  border: none;
+  box-shadow: 0 3px 3px rgba(black, 0.22);
 
   border { border: none; }
 
   button {
     @include button(osd);
+    border: none;
+    &:hover { @include button(osd-hover); }
+    &:active, &:checked { @include button(osd-active); }
+    &:disabled { @include button(osd-insensitive); }
+
     &.flat {
       @extend %circle_button;
       @extend %undecorated_button;
-      border-color: transparentize($selected_bg_color, 1);
+      border: none;
       &:disabled { @extend %undecorated_button; }
-    }
-    &:hover { @include button(osd-hover); }
-    &:active, &:checked { @include button(osd-active); background-clip: padding-box; }
-    &:disabled { @include button(osd-insensitive); }
-  }
+    }  }
 }
 
 //

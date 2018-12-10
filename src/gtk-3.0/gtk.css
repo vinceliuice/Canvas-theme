@@ -3887,14 +3887,13 @@ row.activatable:selected.has-open-popup, .view:selected.has-open-popup, textview
 }
 
 .app-notification {
+  margin: 0 8px 8px 8px;
   padding: 10px;
   color: #d3d3d3;
   background-color: alpha(#282828,0.9);
-  background-clip: border-box;
   border-radius: 0 0 2px 2px;
-  border-width: 0 1px 1px 1px;
-  border-style: solid;
-  border-color: rgba(106, 106, 106, 0.55);
+  border: none;
+  box-shadow: 0 3px 3px rgba(0, 0, 0, 0.22);
 }
 
 .app-notification border {
@@ -3905,10 +3904,7 @@ row.activatable:selected.has-open-popup, .view:selected.has-open-popup, textview
   color: #d3d3d3;
   border-color: rgba(106, 106, 106, 0.55);
   background-color: rgba(96, 96, 96, 0.4);
-}
-
-.app-notification button.flat, .app-notification button.sidebar-button, .app-notification button.budgie-menu-launcher, .app-notification .budgie-panel #tasklist-button, .budgie-panel .app-notification #tasklist-button {
-  border-color: rgba(93, 125, 251, 0);
+  border: none;
 }
 
 .app-notification button:hover {
@@ -3921,13 +3917,16 @@ row.activatable:selected.has-open-popup, .view:selected.has-open-popup, textview
   color: white;
   border-color: #5D7DFB;
   background-color: #5D7DFB;
-  background-clip: padding-box;
 }
 
 .app-notification button:disabled {
   color: #5b5b5b;
   border-color: rgba(106, 106, 106, 0.55);
   background-color: rgba(96, 96, 96, 0.25);
+}
+
+.app-notification button.flat, .app-notification button.sidebar-button, .app-notification button.budgie-menu-launcher, .app-notification .budgie-panel #tasklist-button, .budgie-panel .app-notification #tasklist-button {
+  border: none;
 }
 
 expander arrow {
