@@ -1,0 +1,2 @@
+# Canvas-theme
+Canvas is a flat Material Design theme for GTK 3, GTK 2 and Gnome-Shell
