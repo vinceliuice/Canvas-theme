@@ -1,0 +1,17 @@
+[Icon Theme]
+Name=Numix
+
+Comment=Icon theme from Canvas
+
+Inherits=Numix-Circle,Numix,gnome,hicolor
+
+Example=folder
+
+Directories=places
+
+[places]
+Size=64
+Context=Places
+MinSize=32
+MaxSize=512
+Type=Scalable
