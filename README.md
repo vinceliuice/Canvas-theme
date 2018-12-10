@@ -52,8 +52,8 @@ Usage:  ./Install  [OPTIONS...]
 (Install all themes)
 
 ## Screenshots
-![1](https://github.com/vinceliuice/Canvas-theme/blob/images/screenshots/screenshot01.png?raw=true)
-![2](https://github.com/vinceliuice/Canvas-theme/blob/images/screenshots/screenshot02.png?raw=true)
-![3](https://github.com/vinceliuice/Canvas-theme/blob/images/screenshots/screenshot03.png?raw=true)
-![4](https://github.com/vinceliuice/Canvas-theme/blob/images/screenshots/screenshot04.png?raw=true)
-![5](https://github.com/vinceliuice/Canvas-theme/blob/images/screenshots/screenshot05.png?raw=true)
+![1](https://github.com/vinceliuice/Canvas-theme/blob/images/screenshots/screenshot01.jpeg?raw=true)
+![2](https://github.com/vinceliuice/Canvas-theme/blob/images/screenshots/screenshot02.jpeg?raw=true)
+![3](https://github.com/vinceliuice/Canvas-theme/blob/images/screenshots/screenshot03.jpeg?raw=true)
+![4](https://github.com/vinceliuice/Canvas-theme/blob/images/screenshots/screenshot04.jpeg?raw=true)
+![5](https://github.com/vinceliuice/Canvas-theme/blob/images/screenshots/screenshot05.jpeg?raw=true)
