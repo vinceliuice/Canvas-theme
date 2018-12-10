@@ -1,0 +1,658 @@
+
+//
+// Nemo
+//
+.nemo-desktop.nemo-canvas-item { @extend .nautilus-desktop.nautilus-canvas-item; }
+
+.nemo-window {
+
+  .nemo-places-sidebar {
+    &.frame { border-width: 0; }
+    .places-treeview {
+      @extend row.activatable;
+    }
+  }
+
+  notebook {
+    background-color: $base_color;
+    .primary-toolbar {
+      background-color: $bg_color;
+
+      button,
+      combobox > .linked > button.combo {
+        @include button(normal);
+        &:hover {
+          @include button(hover);
+          -gtk-icon-effect: highlight;
+        }
+        &:active, &:checked {
+          @include button(active);
+          &:not(:disabled) label:disabled { color: inherit; opacity: 0.6; }
+        }
+        &:disabled {
+          @include button(insensitive);
+          &:active, &:checked {
+            @include button(insensitive-active);
+          }
+        }
+      }
+
+      entry {
+        min-height: 24px;
+        min-width: 24px;
+        @include entry(normal);
+        &:focus { @include entry(focus); }
+      }
+    }
+  }
+
+  // Rename entry
+  .nemo-window-pane widget.entry {
+    border: 1px solid;
+    border-radius: 3px;
+
+    @include entry(focus);
+
+    &:selected { &:focus, & { @extend %selected_items; } }
+  }
+
+  // Icon view container
+  .nemo-window-pane {
+    notebook {
+      scrolledwindow.view {
+        @extend %file_manager_img;
+      }
+    }
+  }
+
+  .primary-toolbar {
+    padding-top: 0;
+    padding-bottom: 0;
+    @extend %header_widgets;
+    border: none;
+    color: $header_fg;
+    background-color: opacify($header_bg, 1);
+    box-shadow: inset 0 -1px $borders_color;
+
+    button, entry {
+      min-height: 16px;
+      margin-top: 6px;
+      margin-bottom: 6px;
+    }
+  }
+
+  // Pathbar
+  .primary-toolbar .linked:not(.vertical):not(.stack-switcher).path-bar,
+  .primary-toolbar widget.linked.raised:not(.vertical):not(.path-bar) {
+    button {
+      color: $header_fg;
+      background-color: transparent;
+      border: none;
+      margin-top: 4px;
+      margin-bottom: 4px;
+
+      &:hover {
+        color: $alt_header_fg;
+        border-image: radial-gradient(circle closest-corner at center calc(100% - 1px),
+                                      rgba($selected_bg_color, 0.5) 100%,
+                                      transparent 0%)
+                                      0 0 2 / 0 0 2px;
+      }
+      &:active, &:checked {
+        border-image: radial-gradient(circle closest-corner at center calc(100% - 1px),
+                                      $selected_bg_color 100%,
+                                      transparent 0%)
+                                      0 0 2 / 0 0 2px;
+      }
+      &:disabled { color: rgba($header_fg, 0.5); }
+      &, &:hover, &:active, &:checked, &:disabled { border-radius: 0; }
+    }
+  }
+
+  .sidebar {
+    scrolledwindow.frame { border: none; } // Removed treeview double borders
+  }
+}
+
+//
+// Caja
+//
+.caja-desktop { @extend .nautilus-desktop.nautilus-canvas-item; }
+
+.caja-notebook { border-top: 1px solid $borders_color; }
+.caja-side-pane .frame { border-width: 1px 0 0; }
+.caja-notebook .frame { border-width: 0 0 1px; }
+
+.caja {
+  &-canvas-item { @extend .nautilus-canvas-item; }
+
+  &-list-dim-label { @extend .nautilus-list-dim-label; }
+}
+
+.caja-desktop { // desktop icon-grid styling
+  &.caja-canvas-item { @extend .nautilus-desktop.nautilus-canvas-item; }
+
+  > widget.entry { // = EelEditableLabel.entry
+    &, &:focus {
+      transition: none;
+
+      &:selected { // FIXME: selection node doesn't work?
+        @extend %selected_items;
+      }
+    }
+  }
+}
+
+//
+// Pluma
+//
+
+.pluma-window statusbar frame > border { border: none; }
+
+.pluma-window notebook > stack scrolledwindow { border-width: 0 0 1px 0; }
+
+#pluma-status-combo-button {
+  min-height: 0;
+  padding: 0;
+
+  border-top: none;
+  border-bottom: none;
+  border-radius: 0;
+}
+
+//
+// * Firefox and Thunderbird *
+//
+
+$firefox_border: if($variant == 'light', darken($button_bg, 15%), lighten($button_bg, 15%));
+
+window.background:not(.csd) {
+  > widget {
+    // for the bookmark toolbar's separators
+    > separator { color: $borders_color; }
+
+    // avoid black border
+    > scrollbar { background-clip: border-box; }
+
+    // emphasize borders color
+    > scrollbar,
+    > frame > border { border-color: $borders_color; }
+
+    > entry,
+    > button > button {
+      border: 1px solid $borders_color;
+      border-radius: 2px;
+    }
+
+    > entry,
+    .entry { // Set for linked entrys
+//      min-height: 26px;
+      border-radius: 2px;
+      background-image: image($base_color);
+      border: 1px solid $borders_color;
+
+      &:focus { border-color: $selected_bg_color; }
+    }
+
+    > spinbutton {
+      background-image: image($button_bg);
+      border: 1px solid $borders_color;
+      &:active { background-image: image(if($variant == 'light', darken($button_bg, 5%), lighten($button_bg, 5%))); }
+
+      // Fixed thunderbird linked entry spinbutton border-radius.
+      .entry { border-top-right-radius: 0;  border-bottom-right-radius: 0; }
+    }
+
+    > button > button {
+      &:active, &:checked {
+        border: 1px solid $firefox_border;
+        background-image: image(if($variant == 'light', darken($button_bg, 5%), lighten($button_bg, 5%)));
+      }
+    }
+  }
+
+  .menu { // context-menus
+    border-radius: 0;
+    border: none;
+  }
+
+  > menu > separator { color: $borders_color; }
+  > menu > menuitem > label:disabled { color: $insensitive_fg_color; }
+}
+
+// /*******************
+//  * Firefox Quantum *
+//  *******************/
+
+#MozillaGtkWidget.background {
+
+  // blend with weird toolbar backgrounds
+  background-color: $bg_color;
+
+  // FIXME: resetting child elements background is not fully functional yet
+  // because WidgetStyleCache keeps holding initial background-color.
+  // the stem of this incorrect colouring seems to be caused by their
+  // gdk_rgba to ns_rgba conversion. I don't think theme's fault.
+  .background,
+  frame,
+  separator,
+  scrolledwindow { background-color: $bg_color; }
+
+  headerbar.titlebar { // >= nightly 60.0a1(2018-02-02)
+    // FIXME: no backdrop state, no maximized state, bullshit...
+    padding-left: 10px;
+    padding-right: 10px;
+
+    &.default-decoration {
+      button.titlebutton {
+        background-color: transparent;
+        color: $header_fg;
+        padding: 0;
+        margin: 0;
+        min-width: 24px;
+        min-height: 24px;
+        border-radius: 100px;
+
+        &:hover { background-color: rgba($header_fg, 0.15); }
+        &:active { background-color: rgba($header_fg, 0.25); }
+      }
+    }
+  }
+
+  scrollbar {
+    background-color: if($variant == 'light', $base_color, lighten($bg_color, 15%));
+    slider {
+      background-color: mix($fg_color, $bg_color, 45%);
+      &:hover { background-color: mix($fg_color, $bg_color, 60%); }
+      &:hover:active { background-color: mix($fg_color, $bg_color, 75%); }
+      &:disabled { background-color: transparent; }
+    }
+  }
+
+  *:not(menuitem):hover, // exclude menuitem node
+  *:focus,
+  *:active,
+  *:checked {
+    &, button { color: $fg_color; } // enforce opaque foregrounds
+  }
+
+  > window.background > menu { // context-menus
+    border: unset; // hide ugly double borders
+    background-color: $base_color;
+
+    // revert to standard separators
+    > separator {
+      padding: 0;
+      border: none;
+      background-color: $firefox_border;
+    }
+  }
+
+  > widget {
+    border { border-color: $firefox_border; }
+
+    separator { background-color: $firefox_border; }
+
+    // FIXME: this affected to popover widget as well,
+    // so we can not set $lighter_bg_color to search-bar...
+    > scrolledwindow > textview {
+      background-color: if($variant == 'light', $base_color, lighten($base_color, 5%));
+
+      text {
+        background-color: transparent;
+        color: if($variant =='light', $text_color, $text_color);
+        &:selected,
+        &:selected:focus,
+        selection { @extend %selected_items; }
+      }
+    }
+  }
+}
+
+ /***************
+  * Chrome(ium) *
+  ***************/
+$chrome_borders_color: if($variant == 'light', rgba(black, 0.15), rgba(white, 0.15));
+
+%circle_chrome {
+  button.titlebutton {
+    min-width: 24px;
+    min-height: 24px;
+    padding: 0;
+    margin: 0;
+    border-radius: 100px;
+
+    &.close, &.maximize, &.minimize { // csd windows control titlebuttons
+      margin: 0;
+      padding: 0;
+      color: transparent;
+      border: none;
+
+      &:hover { color: $header_fg; }
+      &:active { color: rgba($header_fg, 0.5); }
+      &:backdrop { opacity: 0.5; }
+    }
+
+    &.minimize {
+      &, &:hover, &:active { background-color: rgba(black, 0.15); }
+    }
+
+    &.maximize {
+      &, &:hover, &:active { background-color: rgba(black, 0.25); }
+    }
+
+    &.close {
+      &, &:hover, &:active { background-color: rgba(black, 0.35); }
+    }
+  }
+}
+
+window.background.chromium {
+  // checked-tab & toolbar & button widgets
+  background-color: $bg_color;
+  color: $text_color;
+
+  headerbar.titlebar {
+    background-color: if($variant == 'light', $canvas_blue_grey, $header_bg);
+    @extend %circle_chrome;
+
+    button.toggle { // account-button (> 64.0.3282?)
+      @include button(header-normal);
+      &:hover { @include button(header-hover); }
+      &:checked, &:active { @include button(header-active); }
+    }
+  }
+
+  // FIXME: not for actual button widgets but for toolbar's separators
+  // crazy: src/+/master/chrome/browser/ui/libgtkui/gtk_ui.cc#891
+  button { // for active-tab borders
+    border-width: 1px;
+    border-style: solid;
+    border-color: $chrome_borders_color;
+  }
+
+  entry.chromium {
+    // overrides standard borders
+    border-image: none;
+    border: 1px solid $chrome_borders_color;
+  }
+
+  // internal region of toolbar's entry widget
+  > textview.view { background-color: $base_color; }
+}
+
+/****************
+ * Libre-Office *
+ ****************/
+
+window.background {
+// reserved area at the most-right side of GtkMenuBar
+  > grid.horizontal > grid.horizontal {
+    background-color: $header_bg;
+    box-shadow: inset 0 -1px $borders_color;
+
+    > button.flat.small-button { // 'close' button
+      color: $header_fg;
+      border: none;
+      border-radius: 50px;
+
+      &:hover { background-color: rgba($header_fg, 0.25); }
+      &:active,
+      &:checked { background-color: $selected_bg_color; color: $selected_fg_color; }
+      &:disabled { color: rgba($header_fg, 0.6); }
+    }
+  }
+}
+
+window.background:not(.solid-csd) {
+  // for 'Notebookbar' toolbar
+  > notebook:not(.frame) {
+    border: 0 none transparent; // unset borders
+    background-color: $base_color;
+
+    > stack {
+      border: none;
+      box-shadow: none;
+    }
+  }
+}
+
+ // /***********
+ //  *  Geary  *
+ //  ***********/
+
+%conversation_frame {
+  > border { border: none; }
+
+  treeview.view {
+    background-color: $base_color;
+
+    &:selected {
+      &, &:focus {
+        background-color: rgba($selected_bg_color, 0.15);
+        color: $fg_color;
+      }
+    }
+  }
+}
+
+%folder_frame {
+  &:dir(ltr) { border: none; }
+  &:dir(rtl) { border: none; }
+
+  // treeview.view.sidebar {
+  //   &.cell { // = row height of placessidebar
+  //    padding-top: rem(4px);
+  //    padding-bottom: rem(4px);
+  //   }
+  // }
+}
+
+window#GearyMainWindow {
+  headerbar {
+    background-color: $canvas_green;
+
+    button { @extend %header_theme_button; }
+
+    button.titlebutton {
+      &.close, &.maximize, &.minimize { // csd windows control titlebuttons
+        color: transparent;
+
+        &:hover { color: $header_fg; }
+        &:active { color: rgba($header_fg, 0.5); }
+        &:backdrop { opacity: 0.5; }
+      }
+
+      &.minimize {
+        &, &:hover, &:active { background-color: rgba(black, 0.15); }
+      }
+
+      &.maximize {
+        &, &:hover, &:active { background-color: rgba(black, 0.25); }
+      }
+
+      &.close {
+        &, &:hover, &:active { background-color: rgba(black, 0.35); }
+      }
+    }
+  }
+}
+
+.geary-titlebar-left {
+  // remove unexpected "hardcoded" vertical separator
+  separator { opacity: 0; }
+}
+
+// left-pane styling (legacy)
+.sidebar.vertical > paned.sidebar-pane-separator {
+  .conversation-frame { @extend %conversation_frame; }
+
+  .folder-frame {
+    > border { border: none; }
+
+    > scrolledwindow { @extend %folder_frame; }
+  }
+}
+
+// left-pane styling (current)
+.sidebar.vertical > paned.geary-sidebar-pane-separator {
+  .geary-conversation-frame { @extend %conversation_frame; }
+
+  .geary-folder-frame {
+    > border { border: none; }
+
+    > scrolledwindow { @extend %folder_frame; }
+  }
+}
+
+// right-pane styling (current)
+stack#conversation_viewer {
+  scrolledwindow.geary-conversation-scroller > viewport.frame {
+    border: none; // unset borders
+  }
+}
+
+// Popover
+popover.background {
+  list.geary-folder-popover-list {
+    row.activatable.geary-folder-popover-list-row {
+      label {
+        color: $fg_color;
+        &:disabled { color: $insensitive_fg_color; }
+      }
+    }
+  }
+}
+
+//
+// gThumb
+//
+overlay.window-overlay {
+  grid.horizontal {
+    stack {
+      paned.horizontal {
+        stack {
+          widget.view.frame,
+          scrolledwindow.frame { // Removed ugly borders
+            border-left: none;
+            border-right: none;
+          }
+        }
+      }
+      .sidebar { border-bottom: 1px solid $borders_color; } // Add bottom border for sidebar
+    }
+  }
+}
+
+
+// /*********
+//  * Tilix *
+//  *********/
+
+// in-line titlebars
+widget > box.terminal-titlebar {
+  padding: 0 6px;
+
+  > button.flat.popup.toggle {
+    border: none;
+    border-radius: 0;
+    padding-top: 0;
+    padding-bottom: 0;
+    border-image: radial-gradient(circle closest-corner at center calc(100% - 1px),
+                                  $selected_bg_color 0%,
+                                  transparent 0%)
+                                  0 0 0 / 0 0 0;
+
+    &:dir(ltr) { padding-right: 6px; }
+    &:dir(rtl) { padding-left: 6px; }
+
+    &:hover {
+      box-shadow: inset 0 -2px $selected_bg_color;
+      background: none;
+    }
+
+    &:checked, &:active {
+      border-image: radial-gradient(circle closest-corner at center calc(100% - 1px),
+                                    $selected_bg_color 100%,
+                                    transparent 0%)
+                                    0 0 2 / 0 0 2px;
+      background-color: transparent;
+      color: $fg_color;
+    }
+  }
+
+  > button.image-button { // 'plus' and 'close'
+    &, &.toggle {
+      margin: 2px 0;
+      padding: 0;
+      min-height: 24px;
+      min-width: 24px;
+      border-radius: 100px;
+      -gtk-outline-radius: 100px;
+    }
+  }
+}
+
+list.tilix-session-sidebar {
+  // use -image property instead
+  background-image: image($dark_sidebar_bg);
+
+  button.tilix-sidebar-close-button {
+    min-height: 20px;
+    min-width: 20px;
+    padding: 0;
+    border-radius: 100px;
+    -gtk-outline-radius: 100px;
+    background-color: $destructive_color;
+    &, &:hover, &:active, &:checked { color: white; }
+
+    &:hover { background-color: lighten($destructive_color, 10%); }
+
+    &:active,
+    &:checked { background-image: image(darken($destructive_color, 10%)); }
+  }
+}
+
+//
+// Pamac
+//
+window.background.csd {
+
+  > box.vertical > stack {
+    > box.horizontal {
+      > list {
+        border-right: 1px solid $solid_borders_color;
+      }
+
+      > box.vertical > stack {
+        > scrolledwindow.frame {
+          border: none;
+        }
+      }
+
+      > revealer > stack {
+        > list {
+          border-right: 1px solid $solid_borders_color;
+        }
+
+        > scrolledwindow {
+          > viewport.frame {
+            > list {
+              border-right: 1px solid $solid_borders_color;
+            }
+          }
+        }
+      }
+    }
+
+    > box.horizontal > revealer > stack {
+      > scrolledwindow {
+        > viewport.frame {
+          > list {
+            border-right: 1px solid $solid_borders_color;
+          }
+        }
+      }
+    }
+  }
+}
