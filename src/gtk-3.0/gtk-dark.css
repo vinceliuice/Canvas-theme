@@ -1567,7 +1567,7 @@ headerbar,
 headerbar:backdrop,
 .titlebar:backdrop:not(headerbar) {
   transition: 200ms ease-out;
-  color: rgba(255, 255, 255, 0.45);
+  color: rgba(255, 255, 255, 0.5);
   background-color: #3a3a3a;
 }
 
@@ -9355,27 +9355,40 @@ filechooser actionbar entry:disabled {
   padding: 0 2px 3px 2px;
 }
 
+.nautilus-window notebook > header.top > tabs > tab + tab {
+  margin-left: -8px;
+}
+
 .nautilus-window notebook > header.top > tabs > tab {
   border: none;
+  padding-left: 16px;
+  padding-right: 16px;
 }
 
 .nautilus-window notebook > header.top > tabs > tab:hover {
-  background-color: rgba(221, 221, 221, 0.15);
-  box-shadow: none;
-  border-radius: 0 0 6px 6px;
+  background-color: rgba(50, 50, 50, 0.5);
+  border-image-width: 8px 16px 8px 16px;
+  border-image-slice: 8 16 8 16;
+  border-image-repeat: stretch;
+  border-image-source: -gtk-scaled(url("assets/tabs-hover-dark.png"), url("assets/tabs-hover-dark@2.png"));
 }
 
-.nautilus-window notebook > header.top > tabs > tab:checked, .nautilus-window notebook > header.top > tabs > tab:checked:backdrop {
+.nautilus-window notebook > header.top > tabs > tab:checked {
   color: rgba(255, 255, 255, 0.75);
   background-color: #323232;
   box-shadow: none;
-  border-radius: 0 0 6px 6px;
+  border: none;
+  border-image-width: 8px 16px 8px 16px;
+  border-image-slice: 8 16 8 16;
+  border-image-repeat: stretch;
+  border-image-source: -gtk-scaled(url("assets/tabs-active-dark.png"), url("assets/tabs-active-dark@2.png"));
 }
 
 .nautilus-window notebook > header.top > tabs > tab:checked:backdrop {
   transition: 200ms ease-out;
-  color: rgba(255, 255, 255, 0.45);
+  color: rgba(255, 255, 255, 0.5);
   background-color: #3a3a3a;
+  border-image-source: -gtk-scaled(url("assets/tabs-active-backdrop-dark.png"), url("assets/tabs-active-backdrop-dark@2.png"));
 }
 
 terminal-window notebook,

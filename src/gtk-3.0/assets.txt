@@ -50,3 +50,9 @@ switch-dark
 switch-active-dark
 switch-insensitive-dark
 switch-active-insensitive-dark
+tabs-active
+tabs-hover
+tabs-active-backdrop
+tabs-active-dark
+tabs-hover-dark
+tabs-active-backdrop-dark
