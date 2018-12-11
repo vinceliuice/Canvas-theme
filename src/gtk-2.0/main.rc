@@ -704,14 +704,14 @@ style "menu_framed_box" {
 #  engine "adwaita" { # default menu border
 #  }
 
-  engine "pixmap" {
-    image {
-      function = BOX
-      file     = "assets/frame.png"
-      border   = { 1, 1, 1, 1 }
-      stretch  = TRUE
-    }
-  }
+#  engine "pixmap" {
+#    image {
+#      function = BOX
+#      file     = "assets/frame.png"
+#      border   = { 1, 1, 1, 1 }
+#      stretch  = TRUE
+#    }
+#  }
 
 }
 

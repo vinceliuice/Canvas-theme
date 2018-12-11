@@ -64,6 +64,10 @@ install() {
   [[ ${color} != '-dark' ]] && \
   cp -ur ${SRC_DIR}/src/gtk-3.0/gtk${menu}-dark.css                                  ${THEME_DIR}/gtk-3.0/gtk-dark.css
   cp -ur ${SRC_DIR}/src/gtk-3.0/thumbnail${color}.png                                ${THEME_DIR}/gtk-3.0/thumbnail.png
+
+  mkdir -p                                                                           ${THEME_DIR}/xfwm4
+  cp -ur ${SRC_DIR}/src/xfwm4/themerc${color}                                        ${THEME_DIR}/xfwm4/themerc
+  cp -ur ${SRC_DIR}/src/xfwm4/assets${color}/*.png                                   ${THEME_DIR}/xfwm4
 }
 
 while [[ $# -gt 0 ]]; do

@@ -357,6 +357,10 @@ window.background.chromium {
     border: 1px solid $chrome_borders_color;
   }
 
+  menu, .menu {
+    border: 1px solid $chrome_borders_color;
+  }
+
   // internal region of toolbar's entry widget
   > textview.view { background-color: $base_color; }
 }
