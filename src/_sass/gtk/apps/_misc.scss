@@ -357,8 +357,29 @@ window.background.chromium {
     border: 1px solid $chrome_borders_color;
   }
 
-  menu, .menu {
-    border: 1px solid $chrome_borders_color;
+  // Fixed Atom/VS-code chromium based app menubar issues
+  > menubar {
+    background-color: $header_bg;
+  }
+
+  > menu {
+    border: 1px solid darken($header_bg, 5%);
+    background-color: $header_bg;
+
+    > menuitem {
+      color: $header_fg; // Atom/VS-code menubar use this as menubar menuitem color
+
+      &:hover {
+        color: $alt_header_fg;
+        background-color: rgba($header_fg, 0.15);
+      }
+
+      &:disabled {
+        color: rgba($header_fg, 0.5);
+      }
+
+      label { &:disabled { color: rgba($header_fg, 0.5); }}
+    }
   }
 
   // internal region of toolbar's entry widget
