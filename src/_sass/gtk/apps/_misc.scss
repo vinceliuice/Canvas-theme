@@ -5,7 +5,6 @@
 .nemo-desktop.nemo-canvas-item { @extend .nautilus-desktop.nautilus-canvas-item; }
 
 .nemo-window {
-
   .nemo-places-sidebar {
     &.frame { border-width: 0; }
     .places-treeview {
@@ -359,7 +358,7 @@ window.background.chromium {
 
   // Fixed Atom/VS-code chromium based app menubar issues
   > menubar {
-    background-color: $header_bg;
+    background-image: image($header_bg);
   }
 
   > menu {

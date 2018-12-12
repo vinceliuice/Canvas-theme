@@ -6401,7 +6401,7 @@ window.background.chromium entry.chromium {
 }
 
 window.background.chromium > menubar {
-  background-color: #323232;
+  background-image: image(#323232);
 }
 
 window.background.chromium > menu {
