@@ -409,6 +409,8 @@ popover.background.places-menu {
   button.flat.launcher {
     padding: 0;
     @extend %underscores;
+    @extend button.flat;
+
     // for indicator colors
     &:not(:checked) {
       color: $panel_fg;
@@ -751,8 +753,8 @@ box.vertical > stack > box.vertical {
         margin: 8px;
         image { padding: 0; }
 
-        &:hover { @include button(header-hover); }
-        &:active, &:checked { @include button(header-active); image { color: white; } }
+        &:hover { @include button(flat-hover); }
+        &:active, &:checked { @include button(flat-active); image { color: white; } }
       }
 
       // sub-list rows grouping
