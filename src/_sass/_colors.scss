@@ -78,10 +78,22 @@ $insensitive_fg_color: rgba($fg_color, 0.45);
 $insensitive_bg_color: lighten($bg_color, 2%);
 
 $header_bg: $canvas_dark_grey;
+@if $header == 'red' { $header_bg: $canvas_red; $selected_bg_color: $header_bg; }
+@if $header == 'pink' { $header_bg: $canvas_pink; $selected_bg_color: $header_bg; }
+@if $header == 'purple' { $header_bg: $canvas_purple; $selected_bg_color: $header_bg; }
+@if $header == 'indigo' { $header_bg: $canvas_indigo; $selected_bg_color: $header_bg; }
+@if $header == 'blue' { $header_bg: $canvas_blue; $selected_bg_color: $header_bg; }
+@if $header == 'cyan' { $header_bg: $canvas_cyan; $selected_bg_color: $header_bg; }
+@if $header == 'teal' { $header_bg: $canvas_teal; $selected_bg_color: $header_bg; }
+@if $header == 'green' { $header_bg: $canvas_green; $selected_bg_color: $header_bg; }
+@if $header == 'lime' { $header_bg: $canvas_lime; $selected_bg_color: $header_bg; }
+@if $header == 'yellow' { $header_bg: $canvas_dark_yellow; $selected_bg_color: $header_bg; }
+@if $header == 'amber' { $header_bg: $canvas_amber; $selected_bg_color: $header_bg; }
+@if $header == 'orange' { $header_bg: $canvas_orange; $selected_bg_color: $header_bg; }
+@if $header == 'brown' { $header_bg: $canvas_brown; $selected_bg_color: $header_bg; }
+
 $header_bg_backdrop: lighten($header_bg, 3%);
-
 $header_border: if($variant == 'light', darken($header_bg, 2%), darken($header_bg, 3%));
-
 $header_fg: rgba(white, 0.75);
 $alt_header_fg: rgba(white, 0.95);
 

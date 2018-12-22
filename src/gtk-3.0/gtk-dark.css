@@ -1820,12 +1820,13 @@ headerbar button:backdrop, .nemo-window .primary-toolbar button:backdrop, window
 
 headerbar button:hover, .nemo-window .primary-toolbar button:hover, window.thunar toolbar#location-toolbar button:hover, window.thunar #location-toolbar.inline-toolbar button:hover {
   color: rgba(255, 255, 255, 0.75);
-  background-color: #3f3f3f;
+  background-color: rgba(255, 255, 255, 0.15);
 }
 
 headerbar button:active, .nemo-window .primary-toolbar button:active, window.thunar toolbar#location-toolbar button:active, window.thunar #location-toolbar.inline-toolbar button:active, headerbar button:checked, .nemo-window .primary-toolbar button:checked, window.thunar toolbar#location-toolbar button:checked, window.thunar #location-toolbar.inline-toolbar button:checked {
   transition: 200ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
   color: white;
+  background-color: rgba(255, 255, 255, 0.25);
   background-color: #5D7DFB;
   background-clip: padding-box;
 }
@@ -1835,11 +1836,12 @@ headerbar button:disabled, .nemo-window .primary-toolbar button:disabled, window
 }
 
 headerbar button:disabled label, .nemo-window .primary-toolbar button:disabled label, window.thunar toolbar#location-toolbar button:disabled label, window.thunar #location-toolbar.inline-toolbar button:disabled label, headerbar button:disabled, .nemo-window .primary-toolbar button:disabled, window.thunar toolbar#location-toolbar button:disabled, window.thunar #location-toolbar.inline-toolbar button:disabled {
-  color: rgba(255, 255, 255, 0.25);
+  color: rgba(255, 255, 255, 0.5);
 }
 
 headerbar button:disabled:active, .nemo-window .primary-toolbar button:disabled:active, window.thunar toolbar#location-toolbar button:disabled:active, window.thunar #location-toolbar.inline-toolbar button:disabled:active, headerbar button:disabled:checked, .nemo-window .primary-toolbar button:disabled:checked, window.thunar toolbar#location-toolbar button:disabled:checked, window.thunar #location-toolbar.inline-toolbar button:disabled:checked {
   color: rgba(255, 255, 255, 0.5);
+  background-color: rgba(255, 255, 255, 0.15);
   background-color: rgba(93, 125, 251, 0.65);
 }
 
@@ -1877,7 +1879,7 @@ headerbar.titlebar.tweak-titlebar-right button:disabled, window.workbench.org-gn
 window.org-gnome-gedit > paned.titlebar headerbar button:disabled label, headerbar.titlebar.contacts-left-header-bar button:disabled label, headerbar.titlebar.contacts-right-header-bar button:disabled label, window.org-gnome-Calendar headerbar.titlebar button:disabled label, headerbar.titlebar.tweak-titlebar-left button:disabled label, headerbar.titlebar.tweak-titlebar-right button:disabled label, window.workbench.org-gnome-Builder headerbar button:disabled label, window#gnome-system-monitor headerbar.titlebar button:disabled label, window.org-gnome-Todo headerbar.titlebar button:disabled label, window.dconf-editor headerbar.titlebar button:disabled label, headerbar.titlebar.event_toolbar button:disabled label, window#GearyMainWindow headerbar button:disabled label, window.org-gnome-gedit > paned.titlebar headerbar button:disabled, headerbar.titlebar.contacts-left-header-bar button:disabled,
 headerbar.titlebar.contacts-right-header-bar button:disabled, window.org-gnome-Calendar headerbar.titlebar button:disabled, headerbar.titlebar.tweak-titlebar-left button:disabled,
 headerbar.titlebar.tweak-titlebar-right button:disabled, window.workbench.org-gnome-Builder headerbar button:disabled, window#gnome-system-monitor headerbar.titlebar button:disabled, window.org-gnome-Todo headerbar.titlebar button:disabled, window.dconf-editor headerbar.titlebar button:disabled, headerbar.titlebar.event_toolbar button:disabled, window#GearyMainWindow headerbar button:disabled {
-  color: rgba(255, 255, 255, 0.25);
+  color: rgba(255, 255, 255, 0.5);
 }
 
 window.org-gnome-gedit > paned.titlebar headerbar button:disabled:active, headerbar.titlebar.contacts-left-header-bar button:disabled:active,
@@ -1991,6 +1993,7 @@ headerbar .linked:not(.vertical):not(.stack-switcher).path-bar > button:hover, .
 }
 
 headerbar .linked:not(.vertical):not(.stack-switcher).path-bar > button:active, .nemo-window .primary-toolbar .linked:not(.vertical):not(.stack-switcher).path-bar > button:active, headerbar .linked:not(.vertical):not(.stack-switcher).path-bar > button:checked, .nemo-window .primary-toolbar .linked:not(.vertical):not(.stack-switcher).path-bar > button:checked {
+  color: white;
   color: #5D7DFB;
   background-color: rgba(0, 0, 0, 0.25);
 }
@@ -2000,26 +2003,23 @@ headerbar .linked:not(.vertical):not(.stack-switcher).path-bar > button:disabled
 }
 
 headerbar .linked:not(.vertical):not(.path-bar).stack-switcher > button, .nemo-window .primary-toolbar .linked:not(.vertical):not(.path-bar).stack-switcher > button {
-  background-color: #4c4c4c;
-  color: rgba(255, 255, 255, 0.75);
-  border-color: rgba(255, 255, 255, 0.12);
+  background-color: rgba(255, 255, 255, 0.15);
 }
 
 headerbar .linked:not(.vertical):not(.path-bar).stack-switcher > button:hover, .nemo-window .primary-toolbar .linked:not(.vertical):not(.path-bar).stack-switcher > button:hover {
-  background-color: #585858;
+  background-color: rgba(255, 255, 255, 0.22);
 }
 
 headerbar .linked:not(.vertical):not(.path-bar).stack-switcher > button:active, .nemo-window .primary-toolbar .linked:not(.vertical):not(.path-bar).stack-switcher > button:active, headerbar .linked:not(.vertical):not(.path-bar).stack-switcher > button:checked, .nemo-window .primary-toolbar .linked:not(.vertical):not(.path-bar).stack-switcher > button:checked {
-  color: white;
-  background-color: #5D7DFB;
+  background-color: rgba(255, 255, 255, 0.3);
 }
 
 headerbar .linked:not(.vertical):not(.path-bar).stack-switcher > button:disabled, .nemo-window .primary-toolbar .linked:not(.vertical):not(.path-bar).stack-switcher > button:disabled {
-  color: rgba(255, 255, 255, 0.4);
+  background-color: rgba(255, 255, 255, 0.08);
 }
 
-headerbar .linked:not(.vertical):not(.path-bar).stack-switcher > button:disabled label, .nemo-window .primary-toolbar .linked:not(.vertical):not(.path-bar).stack-switcher > button:disabled label {
-  color: rgba(255, 255, 255, 0.4);
+headerbar .linked:not(.vertical):not(.path-bar).stack-switcher > button:disabled:active, .nemo-window .primary-toolbar .linked:not(.vertical):not(.path-bar).stack-switcher > button:disabled:active, headerbar .linked:not(.vertical):not(.path-bar).stack-switcher > button:disabled:checked, .nemo-window .primary-toolbar .linked:not(.vertical):not(.path-bar).stack-switcher > button:disabled:checked {
+  background-color: rgba(255, 255, 255, 0.15);
 }
 
 headerbar button.suggested-action, .nemo-window .primary-toolbar button.suggested-action {
@@ -2055,7 +2055,7 @@ headerbar button.suggested-action.flat:disabled, .nemo-window .primary-toolbar b
 }
 
 headerbar button.suggested-action.flat:disabled label, .nemo-window .primary-toolbar button.suggested-action.flat:disabled label, headerbar button.suggested-action.sidebar-button:disabled label, .nemo-window .primary-toolbar button.suggested-action.sidebar-button:disabled label, headerbar button.suggested-action.budgie-menu-launcher:disabled label, .nemo-window .primary-toolbar button.suggested-action.budgie-menu-launcher:disabled label, headerbar .budgie-panel .suggested-action#tasklist-button:disabled label, .budgie-panel headerbar .suggested-action#tasklist-button:disabled label, .nemo-window .primary-toolbar .budgie-panel .suggested-action#tasklist-button:disabled label, .budgie-panel .nemo-window .primary-toolbar .suggested-action#tasklist-button:disabled label, headerbar button.suggested-action.flat:disabled, .nemo-window .primary-toolbar button.suggested-action.flat:disabled, headerbar button.suggested-action.sidebar-button:disabled, .nemo-window .primary-toolbar button.suggested-action.sidebar-button:disabled, headerbar button.suggested-action.budgie-menu-launcher:disabled, .nemo-window .primary-toolbar button.suggested-action.budgie-menu-launcher:disabled, headerbar .budgie-panel .suggested-action#tasklist-button:disabled, .budgie-panel headerbar .suggested-action#tasklist-button:disabled, .nemo-window .primary-toolbar .budgie-panel .suggested-action#tasklist-button:disabled, .budgie-panel .nemo-window .primary-toolbar .suggested-action#tasklist-button:disabled, headerbar button.suggested-action:disabled label, .nemo-window .primary-toolbar button.suggested-action:disabled label, headerbar button.suggested-action:disabled, .nemo-window .primary-toolbar button.suggested-action:disabled {
-  color: rgba(255, 255, 255, 0.25);
+  color: rgba(255, 255, 255, 0.5);
 }
 
 headerbar button.suggested-action:backdrop, .nemo-window .primary-toolbar button.suggested-action:backdrop, headerbar button.suggested-action:backdrop, .nemo-window .primary-toolbar button.suggested-action:backdrop {
@@ -2095,7 +2095,7 @@ headerbar button.destructive-action.flat:disabled, .nemo-window .primary-toolbar
 }
 
 headerbar button.destructive-action.flat:disabled label, .nemo-window .primary-toolbar button.destructive-action.flat:disabled label, headerbar button.destructive-action.sidebar-button:disabled label, .nemo-window .primary-toolbar button.destructive-action.sidebar-button:disabled label, headerbar button.destructive-action.budgie-menu-launcher:disabled label, .nemo-window .primary-toolbar button.destructive-action.budgie-menu-launcher:disabled label, headerbar .budgie-panel .destructive-action#tasklist-button:disabled label, .budgie-panel headerbar .destructive-action#tasklist-button:disabled label, .nemo-window .primary-toolbar .budgie-panel .destructive-action#tasklist-button:disabled label, .budgie-panel .nemo-window .primary-toolbar .destructive-action#tasklist-button:disabled label, headerbar button.destructive-action.flat:disabled, .nemo-window .primary-toolbar button.destructive-action.flat:disabled, headerbar button.destructive-action.sidebar-button:disabled, .nemo-window .primary-toolbar button.destructive-action.sidebar-button:disabled, headerbar button.destructive-action.budgie-menu-launcher:disabled, .nemo-window .primary-toolbar button.destructive-action.budgie-menu-launcher:disabled, headerbar .budgie-panel .destructive-action#tasklist-button:disabled, .budgie-panel headerbar .destructive-action#tasklist-button:disabled, .nemo-window .primary-toolbar .budgie-panel .destructive-action#tasklist-button:disabled, .budgie-panel .nemo-window .primary-toolbar .destructive-action#tasklist-button:disabled, headerbar button.destructive-action:disabled label, .nemo-window .primary-toolbar button.destructive-action:disabled label, headerbar button.destructive-action:disabled, .nemo-window .primary-toolbar button.destructive-action:disabled {
-  color: rgba(255, 255, 255, 0.25);
+  color: rgba(255, 255, 255, 0.5);
 }
 
 headerbar button.destructive-action:backdrop, .nemo-window .primary-toolbar button.destructive-action:backdrop, headerbar button.destructive-action:backdrop, .nemo-window .primary-toolbar button.destructive-action:backdrop {
@@ -2109,7 +2109,7 @@ headerbar spinbutton:not(.vertical):focus, .nemo-window .primary-toolbar spinbut
 
 headerbar spinbutton:not(.vertical) button, .nemo-window .primary-toolbar spinbutton:not(.vertical) button, headerbar spinbutton:not(.vertical) button:disabled, .nemo-window .primary-toolbar spinbutton:not(.vertical) button:disabled {
   color: rgba(255, 255, 255, 0.75);
-  background-color: #3f3f3f;
+  background-color: rgba(255, 255, 255, 0.15);
 }
 
 headerbar spinbutton:not(.vertical) button:hover, .nemo-window .primary-toolbar spinbutton:not(.vertical) button:hover {
@@ -2118,6 +2118,7 @@ headerbar spinbutton:not(.vertical) button:hover, .nemo-window .primary-toolbar 
 
 headerbar spinbutton:not(.vertical) button:active, .nemo-window .primary-toolbar spinbutton:not(.vertical) button:active, headerbar spinbutton:not(.vertical) button:checked, .nemo-window .primary-toolbar spinbutton:not(.vertical) button:checked {
   color: white;
+  background-color: rgba(255, 255, 255, 0.25);
   background-color: #5D7DFB;
 }
 
@@ -2138,7 +2139,7 @@ headerbar combobox > .linked > button.combo, .nemo-window .primary-toolbar combo
 
 headerbar combobox > .linked > button.combo:hover, .nemo-window .primary-toolbar combobox > .linked > button.combo:hover {
   color: rgba(255, 255, 255, 0.75);
-  background-color: #3f3f3f;
+  background-color: rgba(255, 255, 255, 0.15);
   box-shadow: none;
 }
 
@@ -2147,7 +2148,7 @@ headerbar combobox > .linked > button.combo:disabled, .nemo-window .primary-tool
 }
 
 headerbar combobox > .linked > button.combo:disabled label, .nemo-window .primary-toolbar combobox > .linked > button.combo:disabled label, headerbar combobox > .linked > button.combo:disabled, .nemo-window .primary-toolbar combobox > .linked > button.combo:disabled {
-  color: rgba(255, 255, 255, 0.25);
+  color: rgba(255, 255, 255, 0.5);
 }
 
 headerbar combobox > .linked > entry.combo:dir(ltr), .nemo-window .primary-toolbar combobox > .linked > entry.combo:dir(ltr) {
@@ -2410,7 +2411,7 @@ menubar,
   padding: 0 0 0 0;
   background-color: #323232;
   color: rgba(255, 255, 255, 0.75);
-  box-shadow: inset 0 -1px rgba(0, 0, 0, 0.2);
+  box-shadow: none;
 }
 
 menubar:backdrop,
@@ -2428,8 +2429,8 @@ menubar > menuitem,
 
 menubar > menuitem:hover,
 .menubar > menuitem:hover {
-  background-color: transparent;
-  box-shadow: inset 0 -2px #5D7DFB;
+  background-color: rgba(255, 255, 255, 0.15);
+  box-shadow: none;
   color: rgba(255, 255, 255, 0.95);
 }
 
@@ -4664,7 +4665,7 @@ headerbar button.titlebutton,
 headerbar button.titlebutton:hover,
 .titlebar button.titlebutton:hover {
   color: rgba(255, 255, 255, 0.75);
-  background-color: #3f3f3f;
+  background-color: rgba(255, 255, 255, 0.15);
 }
 
 
@@ -4673,6 +4674,7 @@ headerbar button.titlebutton:checked,
 .titlebar button.titlebutton:active,
 .titlebar button.titlebutton:checked {
   color: white;
+  background-color: rgba(255, 255, 255, 0.25);
   background-color: #5D7DFB;
 }
 
@@ -4961,10 +4963,11 @@ popover.background label.nautilus-canvas-item.separator, popover.background labe
 @keyframes needs_attention_keyframes {
   0% {
     color: rgba(255, 255, 255, 0.75);
-    background-color: #3f3f3f;
+    background-color: rgba(255, 255, 255, 0.15);
   }
   100% {
     color: white;
+    background-color: rgba(255, 255, 255, 0.25);
     background-color: #5D7DFB;
   }
 }
@@ -6381,11 +6384,12 @@ window.background.chromium headerbar.titlebar button.toggle {
 
 window.background.chromium headerbar.titlebar button.toggle:hover {
   color: rgba(255, 255, 255, 0.75);
-  background-color: #3f3f3f;
+  background-color: rgba(255, 255, 255, 0.15);
 }
 
 window.background.chromium headerbar.titlebar button.toggle:checked, window.background.chromium headerbar.titlebar button.toggle:active {
   color: white;
+  background-color: rgba(255, 255, 255, 0.25);
   background-color: #5D7DFB;
 }
 
@@ -6406,7 +6410,7 @@ window.background.chromium > menubar {
 
 window.background.chromium > menu {
   border: 1px solid #252525;
-  background-color: #323232;
+  background-image: image(#323232);
 }
 
 window.background.chromium > menu > menuitem {
@@ -7921,11 +7925,12 @@ box.vertical > stack > box.vertical > .raven-background > viewport.frame > list 
 
 .budgie-notification-window button:hover, .budgie-osd-window button:hover, .budgie-switcher-window button:hover {
   color: rgba(255, 255, 255, 0.75);
-  background-color: #3f3f3f;
+  background-color: rgba(255, 255, 255, 0.15);
 }
 
 .budgie-notification-window button:active, .budgie-osd-window button:active, .budgie-switcher-window button:active, .budgie-notification-window button:checked, .budgie-osd-window button:checked, .budgie-switcher-window button:checked {
   color: white;
+  background-color: rgba(255, 255, 255, 0.25);
   background-color: #5D7DFB;
 }
 
@@ -7934,7 +7939,7 @@ box.vertical > stack > box.vertical > .raven-background > viewport.frame > list 
 }
 
 .budgie-notification-window button:disabled label, .budgie-osd-window button:disabled label, .budgie-switcher-window button:disabled label, .budgie-notification-window button:disabled, .budgie-osd-window button:disabled, .budgie-switcher-window button:disabled {
-  color: rgba(255, 255, 255, 0.25);
+  color: rgba(255, 255, 255, 0.5);
 }
 
 .budgie-notification .notification-title, .budgie-switcher .notification-title {

@@ -292,6 +292,8 @@ window.background:not(.csd) {
   * Chrome(ium) *
   ***************/
 $chrome_borders_color: if($variant == 'light', rgba(black, 0.15), rgba(white, 0.15));
+$chrome_menu_bg: $canvas_dark_grey;
+$chrome_menu_fg: $header_fg;
 
 %circle_chrome {
   button.titlebutton {
@@ -358,26 +360,26 @@ window.background.chromium {
 
   // Fixed Atom/VS-code chromium based app menubar issues
   > menubar {
-    background-image: image($header_bg);
+    background-image: image($chrome_menu_bg);
   }
 
   > menu {
-    border: 1px solid darken($header_bg, 5%);
-    background-color: $header_bg;
+    border: 1px solid darken($chrome_menu_bg, 5%);
+    background-image: image($chrome_menu_bg);
 
     > menuitem {
-      color: $header_fg; // Atom/VS-code menubar use this as menubar menuitem color
+      color: $chrome_menu_fg; // Atom/VS-code menubar use this as menubar menuitem color
 
       &:hover {
         color: $alt_header_fg;
-        background-color: rgba($header_fg, 0.15);
+        background-color: rgba($chrome_menu_fg, 0.15);
       }
 
       &:disabled {
-        color: rgba($header_fg, 0.35);
+        color: rgba($chrome_menu_fg, 0.35);
       }
 
-      label { &:disabled { color: rgba($header_fg, 0.35); }}
+      label { &:disabled { color: rgba($chrome_menu_fg, 0.35); }}
     }
   }
 

@@ -679,15 +679,6 @@
     <linearGradient
        inkscape:collect="always"
        xlink:href="#selected_bg_color"
-       id="linearGradient1737"
-       gradientUnits="userSpaceOnUse"
-       x1="257.5"
-       y1="-152.63782"
-       x2="257.5"
-       y2="-137.63782" />
-    <linearGradient
-       inkscape:collect="always"
-       xlink:href="#selected_bg_color"
        id="linearGradient964"
        gradientUnits="userSpaceOnUse"
        x1="257.5"
@@ -711,17 +702,17 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="5.656854"
-     inkscape:cx="442.6355"
-     inkscape:cy="264.55456"
+     inkscape:zoom="2.828427"
+     inkscape:cx="281.13825"
+     inkscape:cy="264.36943"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="true"
      showborder="false"
      inkscape:window-width="1920"
-     inkscape:window-height="1019"
+     inkscape:window-height="1025"
      inkscape:window-x="0"
-     inkscape:window-y="0"
+     inkscape:window-y="27"
      inkscape:window-maximized="1"
      inkscape:snap-nodes="true"
      inkscape:snap-bbox="true"
@@ -4249,26 +4240,6 @@
            ry="3" />
       </g>
     </g>
-    <g
-       style="display:inline"
-       id="menubar"
-       transform="translate(33,-283.63782)"
-       inkscape:label="#g6170">
-      <rect
-         y="111"
-         x="437"
-         height="32"
-         width="24"
-         id="rect6166-6"
-         style="opacity:1;fill:#323232;fill-opacity:1;stroke:none;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1" />
-      <rect
-         y="142"
-         x="437"
-         height="1"
-         width="24"
-         id="rect6168-6"
-         style="opacity:0.15;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1" />
-    </g>
     <rect
        transform="matrix(0,1,-1,0,0,0)"
        y="-287.5"
@@ -5714,13 +5685,15 @@
     </g>
     <g
        id="menubar_button"
-       inkscape:label="#g1743">
+       inkscape:label="#g1743"
+       style="fill:#ffffff;opacity:0.15">
       <g
          transform="translate(11,0)"
          inkscape:label="#g5032"
-         id="menubar_button_bg">
+         id="menubar_button_bg"
+         style="fill:#ffffff">
         <rect
-           style="opacity:1;fill:none;fill-opacity:1;stroke:none;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+           style="opacity:1;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
            id="wsad"
            width="25"
            height="15"
@@ -5731,16 +5704,8 @@
       <g
          id="g1733"
          inkscape:label="#g5032"
-         transform="matrix(1,0,0,0.13333351,11,-119.28608)">
-        <rect
-           inkscape:label="#rect5007"
-           y="-152.63782"
-           x="245"
-           height="15"
-           width="25"
-           id="rect1731"
-           style="opacity:1;fill:url(#linearGradient1737);fill-opacity:1;stroke:none;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1" />
-      </g>
+         transform="matrix(1,0,0,0.13333351,11,-119.28608)"
+         style="fill:#ffffff" />
     </g>
     <g
        id="pathbar_button_active"

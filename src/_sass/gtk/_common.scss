@@ -1120,7 +1120,7 @@ headerbar,
   padding: 0 10px;
   color: $header_fg;
   box-shadow: none;
-  border-bottom: if($variant == 'light', none, 1px solid $header_border);
+  border-bottom: if($variant == 'dark' and $header == 'default', 1px solid $header_border, none);
   background-color: $header_bg;
   min-height: $medium_size;
 
@@ -1416,7 +1416,8 @@ headerbar {
       }
 
       &:active, &:checked {
-        color: $selected_bg_color;
+        color: $selected_fg_color;
+        @if $header == 'default' { color: $selected_bg_color; }
         background-color: rgba(black, 0.25);
       }
 
@@ -1428,15 +1429,12 @@ headerbar {
   // special case and stack-switchers
   .linked:not(.vertical):not(.path-bar).stack-switcher {
     > button {
-      background-color: lighten($header_bg, 10%);
-      color: $header_fg;
-      border-color: rgba(white, 0.12);
-      &:hover { background-color: lighten($header_bg, 15%); }
-      &:active, &:checked { @include button(header-active); }
-      &:disabled { color: rgba($header_fg, 0.4); label { color: rgba($header_fg, 0.4); } }
-//      &, &:hover, &:active, &:checked, &:disabled { @extend %linked_flat; }
+      background-color: rgba(white, 0.15);
+      &:hover { background-color: rgba(white, 0.22); }
+      &:active, &:checked { background-color: rgba(white, 0.3); }
+      &:disabled { background-color: rgba(white, 0.08); }
+      &:disabled:active, &:disabled:checked { background-color: rgba(white, 0.15); }
     }
-    // @include pathbar_linking_rules();
   }
 
   // Headerbar Suggested and Destructive Action buttons
@@ -1741,7 +1739,7 @@ menubar,
   padding: 0 0 0 0;
   background-color: $header_bg;
   color: $header_fg;
-  box-shadow: inset 0 -1px $borders_color;
+  box-shadow: none;
 
   &:backdrop {
     color: transparentize($header_fg, 0.3);
@@ -1755,8 +1753,8 @@ menubar,
     border-radius: 0;
 
     &:hover { //Seems like it :hover even with keyboard focus
-      background-color: transparent;
-      box-shadow: inset 0 -2px $selected_bg_color;
+      background-color: rgba($header_fg, 0.15);
+      box-shadow: none;
       color: $alt_header_fg;
     }
 

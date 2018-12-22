@@ -203,7 +203,7 @@
   // hovered header-bar button
   //
     color: $header_fg;
-    background-color: lighten($header_bg, 5%);
+    background-color: rgba(white, 0.15);
   }
 
   @else if $t==header-active {
@@ -211,14 +211,15 @@
   // pushed header-bar button
   //
     color: $selected_fg_color;
-    background-color: $selected_bg_color;
+    background-color: rgba(white, 0.25);
+    @if $header == 'default' { background-color: $selected_bg_color; }
   }
 
   @else if $t==header-insensitive {
   //
   // insensitive header-bar button
   //
-    label, & { color: transparentize($header_fg, 0.5); }
+    label, & { color: rgba($header_fg, 0.5); }
 
     background-color: transparent;
   }
@@ -227,8 +228,9 @@
   //
   // header-bar insensitive pushed button
   //
-    color: transparentize($selected_fg_color, 0.5);
-    background-color: transparentize($selected_bg_color, 0.35);
+    color: rgba($selected_fg_color, 0.5);
+    background-color: rgba(white, 0.15);
+    @if $header == 'default' { background-color: rgba($selected_bg_color, 0.65); }
   }
 
   @if $t==header-theme-normal {
@@ -261,7 +263,7 @@
   //
   // insensitive header-bar button
   //
-    label, & { color: transparentize($header_fg, 0.5); }
+    label, & { color: rgba($header_fg, 0.5); }
 
     background-color: transparent;
   }

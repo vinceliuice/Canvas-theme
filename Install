@@ -41,13 +41,13 @@ install() {
 
   echo "[Desktop Entry]" >>                                                          ${THEME_DIR}/index.theme
   echo "Type=X-GNOME-Metatheme" >>                                                   ${THEME_DIR}/index.theme
-  echo "Name=${name}${menu}${color}" >>                                              ${THEME_DIR}/index.theme
+  echo "Name=${name}${color}" >>                                                     ${THEME_DIR}/index.theme
   echo "Comment=An Clean Gtk+ theme based on Flat Design" >>                         ${THEME_DIR}/index.theme
   echo "Encoding=UTF-8" >>                                                           ${THEME_DIR}/index.theme
   echo "" >>                                                                         ${THEME_DIR}/index.theme
   echo "[X-GNOME-Metatheme]" >>                                                      ${THEME_DIR}/index.theme
-  echo "GtkTheme=${name}${menu}${color}" >>                                          ${THEME_DIR}/index.theme
-  echo "MetacityTheme=${name}${menu}${color}" >>                                     ${THEME_DIR}/index.theme
+  echo "GtkTheme=${name}${color}" >>                                                 ${THEME_DIR}/index.theme
+  echo "MetacityTheme=${name}${color}" >>                                            ${THEME_DIR}/index.theme
   echo "IconTheme=Adwaita" >>                                                        ${THEME_DIR}/index.theme
   echo "CursorTheme=Adwaita" >>                                                      ${THEME_DIR}/index.theme
   echo "ButtonLayout=menu:minimize,maximize,close" >>                                ${THEME_DIR}/index.theme
@@ -56,18 +56,18 @@ install() {
   cp -ur ${SRC_DIR}/src/gtk-2.0/{apps.rc,panel.rc,main.rc,xfce-notify.rc}            ${THEME_DIR}/gtk-2.0
   cp -ur ${SRC_DIR}/src/gtk-2.0/assets${color}                                       ${THEME_DIR}/gtk-2.0/assets
   cp -ur ${SRC_DIR}/src/gtk-2.0/gtkrc${color}                                        ${THEME_DIR}/gtk-2.0/gtkrc
-  cp -ur ${SRC_DIR}/src/gtk-2.0/menubar-toolbar${color}.rc                           ${THEME_DIR}/gtk-2.0/menubar-toolbar.rc
+  cp -ur ${SRC_DIR}/src/gtk-2.0/menubar-toolbar.rc                                   ${THEME_DIR}/gtk-2.0
 
   mkdir -p                                                                           ${THEME_DIR}/gtk-3.0
   cp -ur ${SRC_DIR}/src/gtk-3.0/assets                                               ${THEME_DIR}/gtk-3.0
-  cp -ur ${SRC_DIR}/src/gtk-3.0/gtk${menu}${color}.css                               ${THEME_DIR}/gtk-3.0/gtk.css
+  cp -ur ${SRC_DIR}/src/gtk-3.0/gtk${color}.css                                      ${THEME_DIR}/gtk-3.0/gtk.css
   [[ ${color} != '-dark' ]] && \
-  cp -ur ${SRC_DIR}/src/gtk-3.0/gtk${menu}-dark.css                                  ${THEME_DIR}/gtk-3.0/gtk-dark.css
+  cp -ur ${SRC_DIR}/src/gtk-3.0/gtk-dark.css                                         ${THEME_DIR}/gtk-3.0/gtk-dark.css
   cp -ur ${SRC_DIR}/src/gtk-3.0/thumbnail${color}.png                                ${THEME_DIR}/gtk-3.0/thumbnail.png
 
   mkdir -p                                                                           ${THEME_DIR}/xfwm4
-  cp -ur ${SRC_DIR}/src/xfwm4/themerc${color}                                        ${THEME_DIR}/xfwm4/themerc
-  cp -ur ${SRC_DIR}/src/xfwm4/assets${color}/*.png                                   ${THEME_DIR}/xfwm4
+  cp -ur ${SRC_DIR}/src/xfwm4/themerc                                                ${THEME_DIR}/xfwm4/themerc
+  cp -ur ${SRC_DIR}/src/xfwm4/assets/*.png                                           ${THEME_DIR}/xfwm4
 }
 
 while [[ $# -gt 0 ]]; do
