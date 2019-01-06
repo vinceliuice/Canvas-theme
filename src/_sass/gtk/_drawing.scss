@@ -17,13 +17,13 @@
 @keyframes ripple_effect {
   from {
     background-image: radial-gradient(circle farthest-corner at center,
-                                      rgba($fg_color, 0.1) 0%,
+                                      gtkalpha(currentColor, 0.1) 0%,
                                       transparent 0%);
   }
 
   to {
     background-image: radial-gradient(circle farthest-corner at center,
-                                      rgba($fg_color, 0.1) 100%,
+                                      gtkalpha(currentColor, 0.1) 100%,
                                       transparent 0%);
   }
 }
@@ -88,8 +88,10 @@
   // focused header-bar entry
   //
     color: lighten($header_fg, 20%);
-    border-color: $selected_bg_color;
-    background-color: if($variant=='light', lighten($header_entry_bg, 2%), lighten($header_entry_bg, 5%));
+    border-color: if($header == 'default', $selected_bg_color, rgba($header_fg, 0.45));
+    background-color: if($variant=='light', darken($header_entry_bg, 2%), darken($header_entry_bg, 3%));
+
+    image { color: if($header == 'default', $selected_bg_color, $header_fg); }
   }
 
   @if $t==header-insensitive {

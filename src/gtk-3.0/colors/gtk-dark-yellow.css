@@ -594,15 +594,15 @@ button.suggested-action.flat, button.suggested-action.sidebar-button, button.sug
 button.suggested-action:hover {
   background-clip: border-box;
   color: white;
-  background-color: #09a7fd;
-  border-color: #0298ea;
+  background-color: #0298ea;
+  border-color: #0288d1;
 }
 
 button.suggested-action:active, button.suggested-action:checked {
   background-clip: border-box;
   color: white;
-  background-color: #02679e;
-  border-color: #015785;
+  background-color: #09a7fd;
+  border-color: #0298ea;
 }
 
 button.suggested-action.flat:disabled, button.suggested-action.sidebar-button:disabled, button.suggested-action.budgie-menu-launcher:disabled, .budgie-panel .suggested-action#tasklist-button:disabled {
@@ -638,15 +638,15 @@ button.destructive-action.flat, button.destructive-action.sidebar-button, button
 button.destructive-action:hover {
   background-clip: border-box;
   color: white;
-  background-color: #ff8585;
-  border-color: #ff6c6c;
+  background-color: #ff6c6c;
+  border-color: #ff5252;
 }
 
 button.destructive-action:active, button.destructive-action:checked {
   background-clip: border-box;
   color: white;
-  background-color: #ff1f1f;
-  border-color: #ff0606;
+  background-color: #ff8585;
+  border-color: #ff6c6c;
 }
 
 button.destructive-action.flat:disabled, button.destructive-action.sidebar-button:disabled, button.destructive-action.budgie-menu-launcher:disabled, .budgie-panel .destructive-action#tasklist-button:disabled {
@@ -1749,13 +1749,13 @@ headerbar entry:backdrop, .nemo-window .primary-toolbar entry:backdrop, window.t
 
 headerbar entry:focus, .nemo-window .primary-toolbar entry:focus, window.thunar toolbar#location-toolbar entry:focus, window.thunar #location-toolbar.inline-toolbar entry:focus {
   color: rgba(255, 255, 255, 0.75);
-  border-color: #F57F17;
-  background-color: #f58421;
+  border-color: rgba(255, 255, 255, 0.45);
+  background-color: #e4700a;
   background-clip: padding-box;
 }
 
 headerbar entry:focus image, .nemo-window .primary-toolbar entry:focus image, window.thunar toolbar#location-toolbar entry:focus image, window.thunar #location-toolbar.inline-toolbar entry:focus image {
-  color: #F57F17;
+  color: rgba(255, 255, 255, 0.75);
 }
 
 headerbar entry:disabled, .nemo-window .primary-toolbar entry:disabled, window.thunar toolbar#location-toolbar entry:disabled, window.thunar #location-toolbar.inline-toolbar entry:disabled {
@@ -1974,7 +1974,13 @@ headerbar .linked:not(.vertical):not(.path-bar) > entry, .nemo-window .primary-t
 }
 
 headerbar .linked:not(.vertical):not(.path-bar) > entry:focus, .nemo-window .primary-toolbar .linked:not(.vertical):not(.path-bar) > entry:focus {
-  border-color: #F57F17;
+  color: rgba(255, 255, 255, 0.75);
+  border-color: rgba(255, 255, 255, 0.45);
+  background-color: #e4700a;
+}
+
+headerbar .linked:not(.vertical):not(.path-bar) > entry:focus image, .nemo-window .primary-toolbar .linked:not(.vertical):not(.path-bar) > entry:focus image {
+  color: rgba(255, 255, 255, 0.75);
 }
 
 headerbar .linked:not(.vertical):not(.stack-switcher).path-bar > button, .nemo-window .primary-toolbar .linked:not(.vertical):not(.stack-switcher).path-bar > button {
@@ -2022,8 +2028,8 @@ headerbar .linked:not(.vertical):not(.path-bar).stack-switcher > button:disabled
 headerbar button.suggested-action, .nemo-window .primary-toolbar button.suggested-action {
   background-clip: border-box;
   color: white;
-  background-color: #0288D1;
-  border-color: #0278b8;
+  background-color: rgba(255, 255, 255, 0.15);
+  border-color: rgba(242, 242, 242, 0.15);
 }
 
 headerbar button.suggested-action.flat, .nemo-window .primary-toolbar button.suggested-action.flat, headerbar button.suggested-action.sidebar-button, .nemo-window .primary-toolbar button.suggested-action.sidebar-button, headerbar button.suggested-action.budgie-menu-launcher, .nemo-window .primary-toolbar button.suggested-action.budgie-menu-launcher, headerbar .budgie-panel .suggested-action#tasklist-button, .budgie-panel headerbar .suggested-action#tasklist-button, .nemo-window .primary-toolbar .budgie-panel .suggested-action#tasklist-button, .budgie-panel .nemo-window .primary-toolbar .suggested-action#tasklist-button, headerbar .budgie-panel button.suggested-action.flat.launcher, .budgie-panel headerbar button.suggested-action.flat.launcher {
@@ -2036,15 +2042,15 @@ headerbar button.suggested-action.flat, .nemo-window .primary-toolbar button.sug
 headerbar button.suggested-action:hover, .nemo-window .primary-toolbar button.suggested-action:hover {
   background-clip: border-box;
   color: white;
-  background-color: #09a7fd;
-  border-color: #0298ea;
+  background-color: rgba(255, 255, 255, 0.25);
+  border-color: rgba(242, 242, 242, 0.25);
 }
 
 headerbar button.suggested-action:active, .nemo-window .primary-toolbar button.suggested-action:active, headerbar button.suggested-action:checked, .nemo-window .primary-toolbar button.suggested-action:checked {
   background-clip: border-box;
   color: white;
-  background-color: #02679e;
-  border-color: #015785;
+  background-color: rgba(255, 255, 255, 0.35);
+  border-color: rgba(242, 242, 242, 0.35);
 }
 
 headerbar button.suggested-action.flat:disabled, .nemo-window .primary-toolbar button.suggested-action.flat:disabled, headerbar button.suggested-action.sidebar-button:disabled, .nemo-window .primary-toolbar button.suggested-action.sidebar-button:disabled, headerbar button.suggested-action.budgie-menu-launcher:disabled, .nemo-window .primary-toolbar button.suggested-action.budgie-menu-launcher:disabled, headerbar .budgie-panel .suggested-action#tasklist-button:disabled, .budgie-panel headerbar .suggested-action#tasklist-button:disabled, .nemo-window .primary-toolbar .budgie-panel .suggested-action#tasklist-button:disabled, .budgie-panel .nemo-window .primary-toolbar .suggested-action#tasklist-button:disabled, headerbar button.suggested-action:disabled, .nemo-window .primary-toolbar button.suggested-action:disabled {
@@ -2062,8 +2068,8 @@ headerbar button.suggested-action:backdrop, .nemo-window .primary-toolbar button
 headerbar button.destructive-action, .nemo-window .primary-toolbar button.destructive-action {
   background-clip: border-box;
   color: white;
-  background-color: #FF5252;
-  border-color: #ff3939;
+  background-color: rgba(255, 255, 255, 0.15);
+  border-color: rgba(242, 242, 242, 0.15);
 }
 
 headerbar button.destructive-action.flat, .nemo-window .primary-toolbar button.destructive-action.flat, headerbar button.destructive-action.sidebar-button, .nemo-window .primary-toolbar button.destructive-action.sidebar-button, headerbar button.destructive-action.budgie-menu-launcher, .nemo-window .primary-toolbar button.destructive-action.budgie-menu-launcher, headerbar .budgie-panel .destructive-action#tasklist-button, .budgie-panel headerbar .destructive-action#tasklist-button, .nemo-window .primary-toolbar .budgie-panel .destructive-action#tasklist-button, .budgie-panel .nemo-window .primary-toolbar .destructive-action#tasklist-button, headerbar .budgie-panel button.destructive-action.flat.launcher, .budgie-panel headerbar button.destructive-action.flat.launcher {
@@ -2076,15 +2082,15 @@ headerbar button.destructive-action.flat, .nemo-window .primary-toolbar button.d
 headerbar button.destructive-action:hover, .nemo-window .primary-toolbar button.destructive-action:hover {
   background-clip: border-box;
   color: white;
-  background-color: #ff8585;
-  border-color: #ff6c6c;
+  background-color: rgba(255, 255, 255, 0.25);
+  border-color: rgba(242, 242, 242, 0.25);
 }
 
 headerbar button.destructive-action:active, .nemo-window .primary-toolbar button.destructive-action:active, headerbar button.destructive-action:checked, .nemo-window .primary-toolbar button.destructive-action:checked {
   background-clip: border-box;
   color: white;
-  background-color: #ff1f1f;
-  border-color: #ff0606;
+  background-color: rgba(255, 255, 255, 0.35);
+  border-color: rgba(242, 242, 242, 0.35);
 }
 
 headerbar button.destructive-action.flat:disabled, .nemo-window .primary-toolbar button.destructive-action.flat:disabled, headerbar button.destructive-action.sidebar-button:disabled, .nemo-window .primary-toolbar button.destructive-action.sidebar-button:disabled, headerbar button.destructive-action.budgie-menu-launcher:disabled, .nemo-window .primary-toolbar button.destructive-action.budgie-menu-launcher:disabled, headerbar .budgie-panel .destructive-action#tasklist-button:disabled, .budgie-panel headerbar .destructive-action#tasklist-button:disabled, .nemo-window .primary-toolbar .budgie-panel .destructive-action#tasklist-button:disabled, .budgie-panel .nemo-window .primary-toolbar .destructive-action#tasklist-button:disabled, headerbar button.destructive-action:disabled, .nemo-window .primary-toolbar button.destructive-action:disabled {
@@ -2460,7 +2466,7 @@ menu separator,
 .menu separator,
 .csd
 .menu separator {
-  margin: 4px 0;
+  margin: 0;
   background-color: rgba(0, 0, 0, 0.2);
 }
 
@@ -2474,9 +2480,9 @@ menu .separator:not(label),
 
 menu menuitem,
 .menu menuitem {
-  min-height: 17px;
+  min-height: 0;
   min-width: 38px;
-  padding: 4px 6px;
+  padding: 0 6px;
 }
 
 menu menuitem:hover,
@@ -5818,8 +5824,12 @@ headerbar.titlebar.incognito-mode entry image, headerbar.titlebar.incognito-mode
 
 headerbar.titlebar.incognito-mode entry:focus {
   color: rgba(255, 255, 255, 0.75);
-  border-color: #F57F17;
-  background-color: #f58421;
+  border-color: rgba(255, 255, 255, 0.45);
+  background-color: #e4700a;
+}
+
+headerbar.titlebar.incognito-mode entry:focus image {
+  color: rgba(255, 255, 255, 0.75);
 }
 
 headerbar.titlebar.incognito-mode entry:disabled {
@@ -5844,8 +5854,12 @@ notebook > box > stack > box.vertical > paned.vertical > overlay > .floating-bar
 
 .background headerbar entry.starred:focus, .background headerbar entry.non-starred:focus {
   color: rgba(255, 255, 255, 0.75);
-  border-color: #F57F17;
-  background-color: #f58421;
+  border-color: rgba(255, 255, 255, 0.45);
+  background-color: #e4700a;
+}
+
+.background headerbar entry.starred:focus image, .background headerbar entry.non-starred:focus image {
+  color: rgba(255, 255, 255, 0.75);
 }
 
 .background headerbar entry.starred:disabled, .background headerbar entry.non-starred:disabled {
@@ -8620,8 +8634,12 @@ MarlinViewWindow FMListView, MarlinViewWindow FMColumnView {
 
 .marlin-pathbar.pathbar:focus {
   color: rgba(255, 255, 255, 0.75);
-  border-color: #F57F17;
-  background-color: #f58421;
+  border-color: rgba(255, 255, 255, 0.45);
+  background-color: #e4700a;
+}
+
+.marlin-pathbar.pathbar:focus image {
+  color: rgba(255, 255, 255, 0.75);
 }
 
 .marlin-pathbar.pathbar:disabled {
@@ -9345,47 +9363,6 @@ filechooser actionbar entry:disabled {
 
 .nautilus-window placessidebar.sidebar scrollbar trough, .nemo-window .sidebar scrollbar trough, .caja-side-pane scrollbar trough {
   background-color: #1b1b1b;
-}
-
-.nautilus-window notebook > header.top {
-  margin-top: -1px;
-  padding: 0 2px 3px 2px;
-}
-
-.nautilus-window notebook > header.top > tabs > tab + tab {
-  margin-left: -8px;
-}
-
-.nautilus-window notebook > header.top > tabs > tab {
-  border: none;
-  padding-left: 16px;
-  padding-right: 16px;
-}
-
-.nautilus-window notebook > header.top > tabs > tab:hover {
-  background-color: rgba(245, 127, 23, 0.5);
-  border-image-width: 8px 16px 8px 16px;
-  border-image-slice: 8 16 8 16;
-  border-image-repeat: stretch;
-  border-image-source: -gtk-scaled(url("assets/tabs-hover-dark.png"), url("assets/tabs-hover-dark@2.png"));
-}
-
-.nautilus-window notebook > header.top > tabs > tab:checked {
-  color: rgba(255, 255, 255, 0.75);
-  background-color: #F57F17;
-  box-shadow: none;
-  border: none;
-  border-image-width: 8px 16px 8px 16px;
-  border-image-slice: 8 16 8 16;
-  border-image-repeat: stretch;
-  border-image-source: -gtk-scaled(url("assets/tabs-active-dark.png"), url("assets/tabs-active-dark@2.png"));
-}
-
-.nautilus-window notebook > header.top > tabs > tab:checked:backdrop {
-  transition: 200ms ease-out;
-  color: rgba(255, 255, 255, 0.5);
-  background-color: #f68726;
-  border-image-source: -gtk-scaled(url("assets/tabs-active-backdrop-dark.png"), url("assets/tabs-active-backdrop-dark@2.png"));
 }
 
 terminal-window notebook,

@@ -1,6 +1,7 @@
 //
 // Special Tabs
 //
+@if $header == 'default' {
 .nautilus-window notebook {
 
   > header.top {
@@ -15,7 +16,7 @@
       padding-right: 16px;
 
       &:hover {
-        background-color: if($variant =='light', rgba($header_bg, 0.15), rgba($header_bg, 0.5));
+        background-color: if($variant == 'light', rgba($header_bg, 0.15), rgba($header_bg, 0.5));
         border-image-width: 8px 16px 8px 16px;
         border-image-slice: 8 16 8 16;
         border-image-repeat: stretch;
@@ -44,6 +45,7 @@
       }
     }
   }
+}
 }
 
 // GNOME Terminal, MATE Terminal
