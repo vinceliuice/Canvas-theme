@@ -7,28 +7,50 @@
   background: none;
   border: none;
   border-radius: 2px;
+  border-image: radial-gradient(circle closest-corner at center calc(100% - 1px),
+                                $selected_bg_color 0%,
+                                transparent 0%)
+                                0 0 0 / 0 0 0;
 
   &:hover {
     color: $alt_header_fg;
-    background-color: rgba(white, 0.08);
+    background-color: rgba($alt_header_fg, 0.10);
   }
 
-  &:checked, &:active {
-    color: $selected_fg_color;
-    background-color: rgba(white, 0.15);
+  &:active {
+    color: $alt_header_fg;
+    background-color: rgba($alt_header_fg, 0.15);
+    border-image: radial-gradient(circle closest-corner at center calc(100% - 1px),
+                                  $selected_bg_color 100%,
+                                  transparent 0%)
+                                  0 0 2 / 0 0 2px;
+  }
+
+  &:checked {
+    color: $alt_header_fg;
+    background-color: transparent;
+    border-image: radial-gradient(circle closest-corner at center calc(100% - 1px),
+                                  $selected_bg_color 100%,
+                                  transparent 0%)
+                                  0 0 2 / 0 0 2px;
   }
 
   &:disabled { color: rgba($header_fg, 0.45); }
 
   &:checked:disabled {
-    color: rgba($selected_fg_color, 0.45);
-    background-color: rgba(white, 0.08);
+    color: rgba($alt_header_fg, 0.45);
+    background-color: transparent;
+    border-image: radial-gradient(circle closest-corner at center calc(100% - 1px),
+                                  rgba($selected_bg_color, 0.5) 100%,
+                                  transparent 0%)
+                                  0 0 2 / 0 0 2px;
   }
 }
 
 .nautilus-window headerbar {
-
   .path-bar-box {
+    margin-top: 0;
+    margin-bottom: 0;
     border-radius: 0;
     color: $header_fg;
     background-color: transparent;
@@ -37,6 +59,22 @@
     .path-bar {
       button.flat.text-button.toggle,
       button.flat.image-button.text-button.toggle { @extend %pathbar_box_button; }
+    }
+
+    .linked.nautilus-path-bar { // for ≥ 3.31.90
+      button.text-button,
+      button.image-button.text-button {
+        margin-top: 0;
+        margin-bottom: 0;
+        @extend %pathbar_box_button;
+
+        &:not(:only-child):last-child {
+          border-image: radial-gradient(circle closest-corner at center calc(100% - 1px),
+                                        $selected_bg_color 100%,
+                                        transparent 0%)
+                                        0 0 2 / 0 0 2px;
+        }
+      }
     }
 
     &.width-maximized {
@@ -185,17 +223,6 @@ $disk_space_free: darken($bg_color, 3%);
 //
 // Gedit
 //
-window.org-gnome-gedit > paned.titlebar {
-
-  > separator { background-image: image($canvas_deep_purple); }
-
-  headerbar {
-    background-color: $canvas_deep_purple;
-
-    button { @extend %header_theme_button; }
-  }
-}
-
 .open-document-selector-treeview.view {
   padding: 3px 6px 3px 6px;
   border-color: $base_color;  // disable borders, making them transparent doesn't work for some reason
@@ -394,13 +421,6 @@ button.documents-favorite:active:hover {
 //
 // Gnome Contacts
 //
-headerbar.titlebar.contacts-left-header-bar,
-headerbar.titlebar.contacts-right-header-bar {
-  background-color: $canvas_indigo;
-
-  button { @extend %header_theme_button; }
-}
-
 window.background.csd {
   > overlay > grid.horizontal {
     > frame:dir(ltr) > border { // Removed ugly borders
@@ -408,17 +428,6 @@ window.background.csd {
       border-left-width: 0;
       border-bottom-width: 0;
     }
-  }
-}
-
-//
-// Gnome Calender
-//
-window.org-gnome-Calendar {
-  headerbar.titlebar {
-    background-color: $canvas_amber;
-
-    button { @extend %header_theme_button; }
   }
 }
 
@@ -520,17 +529,6 @@ box.speedometer {
 //
 // Gnome Tweak Tool
 //
-headerbar.titlebar.tweak-titlebar-left,
-headerbar.titlebar.tweak-titlebar-right {
-  background-color: $canvas_dark_cyan;
-
-  button { @extend %header_theme_button; }
-}
-
-headerbar.titlebar.tweak-titlebar-right {
-  box-shadow: -1px 0 $canvas_dark_cyan;
-}
-
 .tweak-categories {
   separator { background: none; }
 }
@@ -574,15 +572,6 @@ list#AutostartListBoxTweakGroup {
 // Gnome Builder
 //
 // TODO: Merge this with the upstream stylesheet
-window.workbench.org-gnome-Builder {
-  headerbar {
-    background-color: $canvas_blue;
-
-    button { @extend %header_theme_button; }
-  }
-}
-
-
 .gb-search-entry-occurrences-tag { background: none; }
 
 workbench.csd > stack.titlebar:not(headerbar) {
@@ -732,39 +721,6 @@ configurationview {
 }
 
 //
-// Gnome-system-monitor
-//
-window#gnome-system-monitor {
-  headerbar.titlebar {
-    background-color: $canvas_teal;
-
-    button { @extend %header_theme_button; }
-
-    button.titlebutton {
-      &.close, &.maximize, &.minimize { // csd windows control titlebuttons
-        color: transparent;
-
-        &:hover { color: $header_fg; }
-        &:active { color: rgba($header_fg, 0.5); }
-        &:backdrop { opacity: 0.5; }
-      }
-
-      &.minimize {
-        &, &:hover, &:active { background-color: rgba(black, 0.15); }
-      }
-
-      &.maximize {
-        &, &:hover, &:active { background-color: rgba(black, 0.25); }
-      }
-
-      &.close {
-        &, &:hover, &:active { background-color: rgba(black, 0.35); }
-      }
-    }
-  }
-}
-
-//
 // Gnome-Software
 //
 button.round-button { // categories expander button
@@ -830,28 +786,6 @@ window.background > box.vertical > overlay > stack > widget > stack {
     &:checked {
       box-shadow: 0 0 0 2px $selected_bg_color;
     }
-  }
-}
-
-//
-// Gnome-Todo
-//
-window.org-gnome-Todo {
-  headerbar.titlebar {
-    background-color: $canvas_deep_orange;
-
-    button { @extend %header_theme_button; }
-  }
-}
-
-//
-// Dconf-editor
-//
-window.dconf-editor {
-  headerbar.titlebar {
-    background-color: $canvas_purple;
-
-    button { @extend %header_theme_button; }
   }
 }
 
@@ -930,12 +864,6 @@ $em-base: 16px;
   $base: strip-units($base);
 
   @return ($pxval / $base) * 1rem;
-}
-
-headerbar.titlebar.event_toolbar {
-  background-color: $canvas_dark_yellow;
-
-  button { @extend %header_theme_button; }
 }
 
 // titles inside the button!?

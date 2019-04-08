@@ -867,7 +867,7 @@ modelbutton.flat {
     background-color: if($variant=='light', mix($fg_color,$bg_color,5%), mix($fg_color,$bg_color,10%));
   }
   &:active, &:selected {
-    &, arrow { @extend %selected_items; }
+    &, arrow { background-color: rgba($fg_color, 0.2); }
   }
   &:checked { color: $fg_color; }
   &:disabled { color: $insensitive_fg_color; }
@@ -1125,7 +1125,7 @@ headerbar,
   padding: 0 10px;
   color: $header_fg;
   box-shadow: none;
-  border-bottom: if($variant == 'dark' and $header == 'default', 1px solid $header_border, none);
+  border-bottom: if($variant == 'light' and $header == 'dark', none, 1px solid $header_border);
   background-color: $header_bg;
   min-height: $medium_size;
 
@@ -1430,18 +1430,11 @@ headerbar {
 
       &:disabled { color: rgba($header_fg, 0.4); }
     }
-//    @include pathbar_linking_rules($sep_color:$header_button_border);
   }
 
   // special case and stack-switchers
   .linked:not(.vertical):not(.path-bar).stack-switcher {
-    > button {
-      background-color: rgba(white, 0.15);
-      &:hover { background-color: rgba(white, 0.22); }
-      &:active, &:checked { background-color: rgba(white, 0.3); }
-      &:disabled { background-color: rgba(white, 0.08); }
-      &:disabled:active, &:disabled:checked { background-color: rgba(white, 0.15); }
-    }
+    > button { @extend %pathbar_box_button; }
   }
 
   // Headerbar Suggested and Destructive Action buttons
@@ -1797,19 +1790,19 @@ menu,
 
   separator,
   .csd & separator {
-    margin: 2px 0;
-    background-color: $borders_color;
+    margin: 0;
+    background-color: transparent;
   }
 
   // Firefox workaround
   .separator:not(label),
-  .csd & .separator:not(label) { color: $borders_color; }
+  .csd & .separator:not(label) { color: transparent; }
   // Firefox workaround end
 
   menuitem {
     min-height: 16px;
     min-width: $large_size;
-    padding: 3px 6px;
+    padding: 5px 6px;
 
     &:hover {
       color: $fg_color;
@@ -1895,11 +1888,15 @@ popover.background {
   box-shadow: 0 3px 3px rgba(0, 0, 0, 0.18), 0 3px 5px rgba(0, 0, 0, 0.1);
 
   &, .csd & {
-    border: none;
+    border: 1px solid $borders_color;
     border-radius: 3px;
   }
 
-  & separator { background-color: $_popover_bg; }
+  & separator {
+    color: transparent;
+    background-color: $_popover_bg;
+  }
+
   label.separator { @extend label.separator; } // Noice
 
   > list,
@@ -3408,7 +3405,8 @@ $_wm_border: if($variant=='light', rgba(black, 0.15), rgba(black, 0.1));
 
 decoration { // Windows shadows
   border-radius: 0;
-  border: none;
+  border: 2px solid if($header=='dark', $header_bg, rgba(#323232, 0.5));
+  border-top-width: if($header=='dark', 0, 2px);
 
   box-shadow: 0 3px 5px 0 rgba(black, 0.24),
               0 10px 10px 0 rgba(black, 0.16);
@@ -3422,6 +3420,7 @@ decoration { // Windows shadows
     box-shadow: 0 3px 5px 0 transparent, 0 10px 10px 0 transparent,
                 0 3px 3px 0 rgba(black, 0.24);
     transition: $backdrop_transition;
+    border-color: if($header=='dark', $header_bg_backdrop, rgba(#555555, 0.65));
   }
   .fullscreen &,
   .tiled & {
@@ -3435,22 +3434,27 @@ decoration { // Windows shadows
 //    &.maximized { border-radius: 0; }
   }
   .popup & {
+    border: none;
     border-radius: 0;
     box-shadow: none;
   }
   .csd.popup & {
+    border: none;
     border-radius: 0;
-    box-shadow: 0 3px 3px rgba(0, 0, 0, 0.18), 0 3px 5px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 3px 3px rgba(0, 0, 0, 0.18), 0 3px 5px rgba(0, 0, 0, 0.1), 0 0 0 1px $borders_color;
   }
   tooltip.csd & {
+    border: none;
     border-radius: 2px;
     box-shadow: 0 1px 3px 0 rgba(black, 0.15);
   }
   messagedialog.csd & {
     border-radius: 3px;
+    border: none;
   }
   .solid-csd & {
-    border: none;
+    border: 2px solid if($header=='dark', $header_bg, darken($header_bg, 15%));
+    border-top-width: if($header=='dark', 2px, 2px);
     border-radius: 0;
     margin: 0;
     background-color: $header_bg;
@@ -3466,7 +3470,7 @@ headerbar,
 .titlebar {
   > box.horizontal {
     &.left {
-      @each $class, $_left, $_right in ('.close', -10px, 0),
+      @each $class, $_left, $_right in ('.close', if($header=='dark', -12px, -10px), 0),
                                        ('.maximize', -6px, 0),
                                        ('.minimize', -6px, 0) {
         > button.titlebutton#{$class} {
@@ -3476,7 +3480,7 @@ headerbar,
     }
 
     &.right {
-      @each $class, $_left, $_right in ('.close', 0, -10px),
+      @each $class, $_left, $_right in ('.close', 0, if($header=='dark', -12px, -10px)),
                                        ('.maximize', 0, -6px),
                                        ('.minimize', 0, -6px) {
         > button.titlebutton#{$class} {
@@ -3516,15 +3520,15 @@ headerbar,
     }
 
     &.minimize {
-      &, &:hover, &:active { background-color: rgba(black, 0.15); }
+      &, &:hover, &:active { background-color: if($header=='dark', rgba(black, 0.15), rgba(black, 0.03)); }
     }
 
     &.maximize {
-      &, &:hover, &:active { background-color: rgba(black, 0.25); }
+      &, &:hover, &:active { background-color: if($header=='dark', rgba(black, 0.30), rgba(black, 0.06)); }
     }
 
     &.close {
-      &, &:hover, &:active { background-color: rgba(black, 0.35); }
+      &, &:hover, &:active { background-color: if($header=='dark', rgba(black, 0.45), rgba(black, 0.09)); }
     }
   }
 }

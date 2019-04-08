@@ -13,7 +13,7 @@ fi
 SRC_DIR=$(cd $(dirname $0) && pwd)
 
 THEME_NAME=Canvas
-COLOR_VARIANTS=('' '-dark')
+COLOR_VARIANTS=('' '-light' '-dark')
 
 usage() {
   printf "%s\n" "Usage: $0 [OPTIONS...]"
@@ -28,6 +28,9 @@ install() {
   local dest=${1}
   local name=${2}
   local color=${3}
+
+  [[ ${color} == '-dark' ]] && local ELSE_DARK=${color}
+  [[ ${color} == '-light' ]] && local ELSE_LIGHT=${color}
 
   local THEME_DIR=${dest}/${name}${color}
 
@@ -54,7 +57,7 @@ install() {
 
   mkdir -p                                                                           ${THEME_DIR}/gtk-2.0
   cp -ur ${SRC_DIR}/src/gtk-2.0/{apps.rc,panel.rc,main.rc,xfce-notify.rc}            ${THEME_DIR}/gtk-2.0
-  cp -ur ${SRC_DIR}/src/gtk-2.0/assets${color}                                       ${THEME_DIR}/gtk-2.0/assets
+  cp -ur ${SRC_DIR}/src/gtk-2.0/assets${ELSE_DARK}                                   ${THEME_DIR}/gtk-2.0/assets
   cp -ur ${SRC_DIR}/src/gtk-2.0/gtkrc${color}                                        ${THEME_DIR}/gtk-2.0/gtkrc
   cp -ur ${SRC_DIR}/src/gtk-2.0/menubar-toolbar.rc                                   ${THEME_DIR}/gtk-2.0
 
@@ -63,7 +66,7 @@ install() {
   cp -ur ${SRC_DIR}/src/gtk-3.0/gtk${color}.css                                      ${THEME_DIR}/gtk-3.0/gtk.css
   [[ ${color} != '-dark' ]] && \
   cp -ur ${SRC_DIR}/src/gtk-3.0/gtk-dark.css                                         ${THEME_DIR}/gtk-3.0/gtk-dark.css
-  cp -ur ${SRC_DIR}/src/gtk-3.0/thumbnail${color}.png                                ${THEME_DIR}/gtk-3.0/thumbnail.png
+  cp -ur ${SRC_DIR}/src/gtk-3.0/thumbnail${ELSE_DARK}.png                            ${THEME_DIR}/gtk-3.0/thumbnail.png
 
   mkdir -p                                                                           ${THEME_DIR}/xfwm4
   cp -ur ${SRC_DIR}/src/xfwm4/themerc                                                ${THEME_DIR}/xfwm4/themerc

@@ -7,7 +7,7 @@ fi
 
 SASSC_OPT="-M -t expanded"
 
-_VARIANTS=('' '-dark')
+_VARIANTS=('' '-light' '-dark')
 if [ ! -z "${VARIANTS:-}" ]; then
   IFS=', ' read -r -a _VARIANTS <<< "${VARIANTS:-}"
 fi

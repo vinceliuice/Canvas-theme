@@ -291,9 +291,11 @@ window.background:not(.csd) {
  /***************
   * Chrome(ium) *
   ***************/
-$chrome_borders_color: if($variant == 'light', rgba(black, 0.15), rgba(white, 0.15));
-$chrome_menu_bg: $canvas_dark_grey;
-$chrome_menu_fg: $header_fg;
+$chrome_borders_color: darken(white, 15%);
+$chrome_bg: #ffffff;
+$chrome_fg: #515151;
+$chrome_menu_bg: #ffffff;
+$chrome_menu_fg: #565656;
 
 %circle_chrome {
   button.titlebutton {
@@ -313,28 +315,16 @@ $chrome_menu_fg: $header_fg;
       &:active { color: rgba($header_fg, 0.5); }
       &:backdrop { opacity: 0.5; }
     }
-
-    &.minimize {
-      &, &:hover, &:active { background-color: rgba(black, 0.15); }
-    }
-
-    &.maximize {
-      &, &:hover, &:active { background-color: rgba(black, 0.25); }
-    }
-
-    &.close {
-      &, &:hover, &:active { background-color: rgba(black, 0.35); }
-    }
   }
 }
 
 window.background.chromium {
   // checked-tab & toolbar & button widgets
-  background-color: $bg_color;
-  color: $text_color;
+  background-color: $chrome_bg;
+  color: $chrome_fg;
 
   headerbar.titlebar {
-    background-color: if($variant == 'light', $canvas_blue_grey, $header_bg);
+    background-color: if($variant == 'light', darken($header_bg, 5%), lighten($header_bg, 5%));
     @extend %circle_chrome;
 
     button.toggle { // account-button (> 64.0.3282?)
@@ -364,14 +354,14 @@ window.background.chromium {
   }
 
   > menu {
-    border: 1px solid darken($chrome_menu_bg, 5%);
+    border: 1px solid $chrome_borders_color;
     background-image: image($chrome_menu_bg);
 
     > menuitem {
       color: $chrome_menu_fg; // Atom/VS-code menubar use this as menubar menuitem color
 
       &:hover {
-        color: $alt_header_fg;
+        color: $chrome_menu_fg;
         background-color: rgba($chrome_menu_fg, 0.15);
       }
 
@@ -384,7 +374,7 @@ window.background.chromium {
   }
 
   // internal region of toolbar's entry widget
-  > textview.view { background-color: $base_color; }
+  > textview.view { background-color: $chrome_menu_bg; }
 }
 
 /****************
@@ -423,9 +413,9 @@ window.background:not(.solid-csd) {
   }
 }
 
- // /***********
- //  *  Geary  *
- //  ***********/
+//
+// Geary
+//
 
 %conversation_frame {
   > border { border: none; }
@@ -452,36 +442,6 @@ window.background:not(.solid-csd) {
   //    padding-bottom: rem(4px);
   //   }
   // }
-}
-
-window#GearyMainWindow {
-  headerbar {
-    background-color: $canvas_green;
-
-    button { @extend %header_theme_button; }
-
-    button.titlebutton {
-      &.close, &.maximize, &.minimize { // csd windows control titlebuttons
-        color: transparent;
-
-        &:hover { color: $header_fg; }
-        &:active { color: rgba($header_fg, 0.5); }
-        &:backdrop { opacity: 0.5; }
-      }
-
-      &.minimize {
-        &, &:hover, &:active { background-color: rgba(black, 0.15); }
-      }
-
-      &.maximize {
-        &, &:hover, &:active { background-color: rgba(black, 0.25); }
-      }
-
-      &.close {
-        &, &:hover, &:active { background-color: rgba(black, 0.35); }
-      }
-    }
-  }
 }
 
 .geary-titlebar-left {

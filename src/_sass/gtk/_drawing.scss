@@ -88,10 +88,10 @@
   // focused header-bar entry
   //
     color: lighten($header_fg, 20%);
-    border-color: if($header == 'default', $selected_bg_color, rgba($header_fg, 0.45));
-    background-color: if($variant=='light', darken($header_entry_bg, 2%), darken($header_entry_bg, 3%));
+    border-color: if($header == 'light' or $header == 'dark', $selected_bg_color, rgba($header_fg, 0.45));
+    background-color: $header_entry_bg;
 
-    image { color: if($header == 'default', $selected_bg_color, $header_fg); }
+    image { color: if($header == 'light' or $header == 'dark', $selected_bg_color, $header_fg); }
   }
 
   @if $t==header-insensitive {
@@ -205,7 +205,7 @@
   // hovered header-bar button
   //
     color: $header_fg;
-    background-color: rgba(white, 0.15);
+    background-color: rgba($header_fg, 0.15);
   }
 
   @else if $t==header-active {
@@ -213,8 +213,7 @@
   // pushed header-bar button
   //
     color: $selected_fg_color;
-    background-color: rgba(white, 0.25);
-    @if $header == 'default' { background-color: $selected_bg_color; }
+    background-color: if($header == 'light' or $header == 'dark',  $selected_bg_color, rgba(white, 0.25));
   }
 
   @else if $t==header-insensitive {
