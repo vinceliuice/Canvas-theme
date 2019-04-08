@@ -98,9 +98,9 @@
   //
   // insensitive header-bar entry
   //
-    color: transparentize($header_fg, 0.45);
+    color: $header_insensitive_fg_color;
     border-color: $header_entry_border;
-    background-color: transparentize($header_entry_bg, 0.15);
+    background-color: rgba($header_entry_bg, 0.85);
   }
 
   @else if $t==osd {
@@ -220,7 +220,7 @@
   //
   // insensitive header-bar button
   //
-    label, & { color: rgba($header_fg, 0.5); }
+    label, & { color: $header_insensitive_fg_color; }
 
     background-color: transparent;
   }
@@ -229,7 +229,7 @@
   //
   // header-bar insensitive pushed button
   //
-    color: rgba($selected_fg_color, 0.5);
+    color: rgba($selected_fg_color, 0.45);
     background-color: rgba(white, 0.15);
     @if $header == 'default' { background-color: rgba($selected_bg_color, 0.65); }
   }

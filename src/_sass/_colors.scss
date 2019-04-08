@@ -58,7 +58,7 @@ $warning_fg_color: white;
 $error_fg_color: white;
 $success_color: $canvas_green;
 $destructive_color: $canvas_red;
-$suggested_color: $canvas_light_blue;
+$suggested_color: $canvas_sea_green;
 $destructive_fg_color: white;
 $suggested_fg_color: white;
 $drop_target_color: $canvas_amber;
@@ -96,6 +96,7 @@ $header_bg: if($variant == 'light' and $header == 'dark', $canvas_dark_grey, dar
 $header_bg_backdrop: lighten($header_bg, 3%);
 $header_border: if($header == 'light', darken($header_bg, 15%), darken($header_bg, 3%));
 $header_fg: if($header == 'dark', rgba(white, 0.75), rgba(black, 0.6));
+$header_insensitive_fg_color: if($header == 'dark', rgba(white, 0.35), rgba(black, 0.25));
 $alt_header_fg: if($header == 'dark', rgba(white, 0.95), rgba(black, 0.75));
 
 $dark_sidebar_bg: if($variant == 'light', #f8f8f8, #282828);

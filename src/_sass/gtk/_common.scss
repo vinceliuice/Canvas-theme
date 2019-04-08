@@ -1441,7 +1441,7 @@ headerbar {
   @each $b_type, $b_color, $b_fg in (suggested-action, $suggested_color, $suggested_fg_color),
                                     (destructive-action, $destructive_color, $destructive_fg_color) {
     button.#{$b_type} {
-      @include button(suggested_destructive, if($header == 'default', $b_color, rgba($b_fg, 0.15)), $b_fg);
+      @include button(suggested_destructive, if($header == 'light' or $header == 'dark', $b_color, rgba($b_fg, 0.15)), $b_fg);
 
       &.flat {
         @include button(undecorated);
@@ -1449,11 +1449,11 @@ headerbar {
       }
 
       &:hover {
-        @include button(suggested_destructive, if($header == 'default', lighten($b_color, 5%), rgba($b_fg, 0.25)), $b_fg);
+        @include button(suggested_destructive, if($header == 'light' or $header == 'dark', lighten($b_color, 5%), rgba($b_fg, 0.25)), $b_fg);
       }
 
       &:active, &:checked {
-        @include button(suggested_destructive, if($header == 'default', lighten($b_color, 10%), rgba($b_fg, 0.35)), $b_fg);
+        @include button(suggested_destructive, if($header == 'light' or $header == 'dark', lighten($b_color, 10%), rgba($b_fg, 0.35)), $b_fg);
       }
 
       &.flat:disabled,
