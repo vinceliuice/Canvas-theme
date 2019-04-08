@@ -867,7 +867,7 @@ modelbutton.flat {
     background-color: if($variant=='light', mix($fg_color,$bg_color,5%), mix($fg_color,$bg_color,10%));
   }
   &:active, &:selected {
-    &, arrow { background-color: rgba($fg_color, 0.2); }
+    background-color: rgba($fg_color, 0.2);
   }
   &:checked { color: $fg_color; }
   &:disabled { color: $insensitive_fg_color; }
@@ -1184,6 +1184,14 @@ headerbar,
     &:backdrop { background-color: opacify($header_bg_backdrop, 1); }
   }
 
+  &:not(.csd).default-decoration {
+    padding: 0 3px;
+
+    button.titlebutton {
+      margin: 0 -3px;
+    }
+  }
+
   &.default-decoration,
   .csd &.default-decoration,
   &.default-decoration:backdrop,
@@ -1191,28 +1199,22 @@ headerbar,
     background-color: $header_bg;
     border: none;
     box-shadow: none;
-    min-height: $medium_size;
-    padding: 0 6px 0 0;
+    min-height: 28px;
+    padding: 0;
     margin: 0;
+
+    button.titlebutton {
+      min-height: 28px;
+      min-width: 28px;
+      border: none;
+      border-radius: 0;
+    }
 
     .tiled &,
     .maximized &,
     .fullscreen & {
       box-shadow: none;
       background-color: $header_bg;
-    }
-
-    button.titlebutton {
-      min-height: $medium_size;
-      min-width: $medium_size;
-      padding: 0;
-      margin: 0;
-      border: none;
-      border-radius: 0;
-    }
-
-    button.titlebutton:not(:last-child) {
-      margin-right: -6px;
     }
   }
 
@@ -2091,6 +2093,7 @@ scrollbar {
 
   background-color: $_scrollbar_bg_color;
   transition: 300ms $ease-out-quad;
+  background-clip: if($variant == 'light', padding-box, border-box);
 
   // scrollbar border
   &.top { border-bottom: 1px solid $borders_color; }
@@ -2159,6 +2162,19 @@ scrollbar {
       &.vertical slider {
         margin: 2px 0;
         min-height: $_slider_min_length;
+      }
+
+      button {
+        min-width: 4px;
+        min-height: 4px;
+        margin: 4px - 1px;
+        border: 1px solid $borders_color;
+        border-radius: 2px;
+        background-color: rgba($fg_color, 0.25);
+        background-clip: padding-box;
+        -gtk-icon-source: none;
+
+        &:disabled { background-color: rgba($fg_color, 0.15); }
       }
     }
 
@@ -3511,8 +3527,8 @@ headerbar,
       color: transparent;
       border: none;
       border-radius: 0;
-      min-width: $large_size + 2px;
-      min-height: $large_size + 2px;
+      min-width: 40px;
+      min-height: 40px;
 
       &:hover { color: $header_fg; }
       &:active { color: rgba($header_fg, 0.5); }
@@ -3529,6 +3545,30 @@ headerbar,
 
     &.close {
       &, &:hover, &:active { background-color: if($header=='dark', rgba(black, 0.45), rgba(black, 0.09)); }
+    }
+  }
+
+  &.default-decoration {
+    > box.horizontal {
+      &.left {
+        @each $class, $_left, $_right in ('.close', 0, 0),
+                                         ('.maximize', 0, 0),
+                                         ('.minimize', 0, 0) {
+          > button.titlebutton#{$class} {
+            margin-left: #{$_left};
+          }
+        }
+      }
+
+      &.right {
+        @each $class, $_left, $_right in ('.close', 0, 0),
+                                         ('.maximize', 0, 0),
+                                         ('.minimize', 0, 0) {
+          > button.titlebutton#{$class} {
+            margin-right: #{$_right};
+          }
+        }
+      }
     }
   }
 }

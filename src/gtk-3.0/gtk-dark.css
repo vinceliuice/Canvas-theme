@@ -1269,11 +1269,9 @@ modelbutton.flat:hover {
   background-color: #3a3a3a;
 }
 
-menuitem.button.flat:active, menuitem.button.flat:active arrow, menuitem.button.flat:selected, menuitem.button.flat:selected arrow,
+menuitem.button.flat:active, menuitem.button.flat:selected,
 modelbutton.flat:active,
-modelbutton.flat:active arrow,
-modelbutton.flat:selected,
-modelbutton.flat:selected arrow {
+modelbutton.flat:selected {
   background-color: rgba(221, 221, 221, 0.2);
 }
 
@@ -1642,6 +1640,16 @@ headerbar.selection-mode .selection-menu .arrow,
   background-color: #252525;
 }
 
+headerbar:not(.csd).default-decoration,
+.titlebar:not(.csd).default-decoration:not(headerbar) {
+  padding: 0 3px;
+}
+
+headerbar:not(.csd).default-decoration button.titlebutton,
+.titlebar:not(.csd).default-decoration:not(headerbar) button.titlebutton {
+  margin: 0 -3px;
+}
+
 headerbar.default-decoration,
 .csd headerbar.default-decoration, headerbar.default-decoration:backdrop,
 .csd headerbar.default-decoration:backdrop,
@@ -1653,8 +1661,21 @@ headerbar.default-decoration,
   border: none;
   box-shadow: none;
   min-height: 28px;
-  padding: 0 6px 0 0;
+  padding: 0;
   margin: 0;
+}
+
+headerbar.default-decoration button.titlebutton,
+.csd headerbar.default-decoration button.titlebutton, headerbar.default-decoration:backdrop button.titlebutton,
+.csd headerbar.default-decoration:backdrop button.titlebutton,
+.default-decoration.titlebar:not(headerbar) button.titlebutton,
+.csd .default-decoration.titlebar:not(headerbar) button.titlebutton,
+.default-decoration.titlebar:backdrop:not(headerbar) button.titlebutton,
+.csd .default-decoration.titlebar:backdrop:not(headerbar) button.titlebutton {
+  min-height: 28px;
+  min-width: 28px;
+  border: none;
+  border-radius: 0;
 }
 
 .tiled headerbar.default-decoration,
@@ -1682,31 +1703,6 @@ headerbar.default-decoration,
 .fullscreen .csd .default-decoration.titlebar:backdrop:not(headerbar) {
   box-shadow: none;
   background-color: #1e1e1e;
-}
-
-headerbar.default-decoration button.titlebutton,
-.csd headerbar.default-decoration button.titlebutton, headerbar.default-decoration:backdrop button.titlebutton,
-.csd headerbar.default-decoration:backdrop button.titlebutton,
-.default-decoration.titlebar:not(headerbar) button.titlebutton,
-.csd .default-decoration.titlebar:not(headerbar) button.titlebutton,
-.default-decoration.titlebar:backdrop:not(headerbar) button.titlebutton,
-.csd .default-decoration.titlebar:backdrop:not(headerbar) button.titlebutton {
-  min-height: 28px;
-  min-width: 28px;
-  padding: 0;
-  margin: 0;
-  border: none;
-  border-radius: 0;
-}
-
-headerbar.default-decoration button.titlebutton:not(:last-child),
-.csd headerbar.default-decoration button.titlebutton:not(:last-child), headerbar.default-decoration:backdrop button.titlebutton:not(:last-child),
-.csd headerbar.default-decoration:backdrop button.titlebutton:not(:last-child),
-.default-decoration.titlebar:not(headerbar) button.titlebutton:not(:last-child),
-.csd .default-decoration.titlebar:not(headerbar) button.titlebutton:not(:last-child),
-.default-decoration.titlebar:backdrop:not(headerbar) button.titlebutton:not(:last-child),
-.csd .default-decoration.titlebar:backdrop:not(headerbar) button.titlebutton:not(:last-child) {
-  margin-right: -6px;
 }
 
 .titlebar {
@@ -2780,6 +2776,7 @@ notebook > header > tabs > tab button.flat:active, notebook > header > tabs > ta
 scrollbar {
   background-color: rgba(0, 0, 0, 0.05);
   transition: 300ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  background-clip: border-box;
 }
 
 * {
@@ -2880,6 +2877,21 @@ scrollbar.overlay-indicator:not(.dragging):not(.hovering).horizontal slider {
 scrollbar.overlay-indicator:not(.dragging):not(.hovering).vertical slider {
   margin: 2px 0;
   min-height: 38px;
+}
+
+scrollbar.overlay-indicator:not(.dragging):not(.hovering) button {
+  min-width: 4px;
+  min-height: 4px;
+  margin: 3px;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  border-radius: 2px;
+  background-color: rgba(221, 221, 221, 0.25);
+  background-clip: padding-box;
+  -gtk-icon-source: none;
+}
+
+scrollbar.overlay-indicator:not(.dragging):not(.hovering) button:disabled {
+  background-color: rgba(221, 221, 221, 0.15);
 }
 
 scrollbar.overlay-indicator.dragging, scrollbar.overlay-indicator.hovering {
@@ -4671,6 +4683,42 @@ headerbar button.titlebutton.close:active,
   background-color: rgba(0, 0, 0, 0.45);
 }
 
+
+headerbar.default-decoration > box.horizontal.left > button.titlebutton.close,
+.titlebar.default-decoration > box.horizontal.left > button.titlebutton.close {
+  margin-left: 0;
+}
+
+
+headerbar.default-decoration > box.horizontal.left > button.titlebutton.maximize,
+.titlebar.default-decoration > box.horizontal.left > button.titlebutton.maximize {
+  margin-left: 0;
+}
+
+
+headerbar.default-decoration > box.horizontal.left > button.titlebutton.minimize,
+.titlebar.default-decoration > box.horizontal.left > button.titlebutton.minimize {
+  margin-left: 0;
+}
+
+
+headerbar.default-decoration > box.horizontal.right > button.titlebutton.close,
+.titlebar.default-decoration > box.horizontal.right > button.titlebutton.close {
+  margin-right: 0;
+}
+
+
+headerbar.default-decoration > box.horizontal.right > button.titlebutton.maximize,
+.titlebar.default-decoration > box.horizontal.right > button.titlebutton.maximize {
+  margin-right: 0;
+}
+
+
+headerbar.default-decoration > box.horizontal.right > button.titlebutton.minimize,
+.titlebar.default-decoration > box.horizontal.right > button.titlebutton.minimize {
+  margin-right: 0;
+}
+
 .view:selected, .view:selected:focus, textview text:selected, iconview:selected, window.thunar notebook scrolledwindow.frame.standard-view .view:selected, textview text selection:focus, textview text selection, flowbox flowboxchild:selected, entry selection:focus, entry selection, window.thunar .sidebar treeview.view:selected, treeview.view:selected:focus, row:selected, calendar:selected, .nemo-window .nemo-window-pane widget.entry:selected:focus, .nemo-window .nemo-window-pane widget.entry:selected, .caja-desktop > widget.entry:selected, .caja-desktop > widget.entry:focus:selected, #MozillaGtkWidget.background > widget > scrolledwindow > textview text:selected, #MozillaGtkWidget.background > widget > scrolledwindow > textview text:selected:focus,
 #MozillaGtkWidget.background > widget > scrolledwindow > textview text selection, .budgie-popover:not(.budgie-menu) button.flat:not(.image-button):active, .budgie-popover:not(.budgie-menu) button.sidebar-button:not(.image-button):active, .budgie-popover:not(.budgie-menu) button.budgie-menu-launcher:not(.image-button):active, .budgie-popover:not(.budgie-menu) .budgie-panel #tasklist-button:not(.image-button):active, .budgie-panel .budgie-popover:not(.budgie-menu) #tasklist-button:not(.image-button):active, .budgie-popover:not(.budgie-menu) button.flat:not(.image-button):active arrow, .budgie-popover:not(.budgie-menu) button.sidebar-button:not(.image-button):active arrow, .budgie-popover:not(.budgie-menu) button.budgie-menu-launcher:not(.image-button):active arrow, .budgie-popover:not(.budgie-menu) .budgie-panel #tasklist-button:not(.image-button):active arrow, .budgie-panel .budgie-popover:not(.budgie-menu) #tasklist-button:not(.image-button):active arrow, .budgie-popover:not(.budgie-menu) button.flat:not(.image-button):checked, .budgie-popover:not(.budgie-menu) button.sidebar-button:not(.image-button):checked, .budgie-popover:not(.budgie-menu) button.budgie-menu-launcher:not(.image-button):checked, .budgie-popover:not(.budgie-menu) .budgie-panel #tasklist-button:not(.image-button):checked, .budgie-panel .budgie-popover:not(.budgie-menu) #tasklist-button:not(.image-button):checked, .budgie-popover:not(.budgie-menu) button.flat:not(.image-button):checked arrow, .budgie-popover:not(.budgie-menu) button.sidebar-button:not(.image-button):checked arrow, .budgie-popover:not(.budgie-menu) button.budgie-menu-launcher:not(.image-button):checked arrow, .budgie-popover:not(.budgie-menu) .budgie-panel #tasklist-button:not(.image-button):checked arrow, .budgie-panel .budgie-popover:not(.budgie-menu) #tasklist-button:not(.image-button):checked arrow, .budgie-menu button:active, .budgie-menu button:checked {
   background-color: #5D7DFB;
@@ -4735,6 +4783,39 @@ button.emoji-section:last-child {
 
 .emoji widget:hover {
   font-size: larger;
+}
+
+terminal-window notebook,
+.mate-terminal notebook {
+  padding: 0;
+}
+
+terminal-window notebook > header.top,
+.mate-terminal notebook > header.top {
+  padding: 0;
+  margin-top: -1px;
+}
+
+terminal-window notebook > header.top > tabs > tab:first-child,
+.mate-terminal notebook > header.top > tabs > tab:first-child {
+  border-left: none;
+}
+
+terminal-window notebook > header.top button,
+.mate-terminal notebook > header.top button {
+  padding: 0;
+  min-width: 24px;
+  min-height: 24px;
+}
+
+terminal-window notebook scrollbar,
+.mate-terminal notebook scrollbar {
+  background: none;
+}
+
+terminal-window .terminal-screen,
+.mate-terminal .terminal-screen {
+  padding: 0 0 0 0;
 }
 
 headerbar .linked:not(.vertical):not(.path-bar).stack-switcher > button, .nemo-window .primary-toolbar .linked:not(.vertical):not(.path-bar).stack-switcher > button, .nautilus-window headerbar .path-bar-box .path-bar button.flat.text-button.toggle, .nautilus-window headerbar .path-bar-box .path-bar button.text-button.toggle.sidebar-button, .nautilus-window headerbar .path-bar-box .path-bar button.text-button.toggle.budgie-menu-launcher, .nautilus-window headerbar .path-bar-box .path-bar .budgie-panel .text-button.toggle#tasklist-button, .budgie-panel .nautilus-window headerbar .path-bar-box .path-bar .text-button.toggle#tasklist-button,
@@ -9172,34 +9253,6 @@ filechooser actionbar entry:disabled {
 
 .nautilus-window placessidebar.sidebar scrollbar trough, .nemo-window .sidebar scrollbar trough, .caja-side-pane scrollbar trough {
   background-color: #1b1b1b;
-}
-
-terminal-window notebook,
-.mate-terminal notebook {
-  padding: 0;
-}
-
-terminal-window notebook > header.top,
-.mate-terminal notebook > header.top {
-  padding: 0;
-  margin-top: -1px;
-}
-
-terminal-window notebook > header.top > tabs > tab:first-child,
-.mate-terminal notebook > header.top > tabs > tab:first-child {
-  border-left: none;
-}
-
-terminal-window notebook > header.top button,
-.mate-terminal notebook > header.top button {
-  padding: 0;
-  min-width: 24px;
-  min-height: 24px;
-}
-
-terminal-window notebook scrollbar,
-.mate-terminal notebook scrollbar {
-  background: none;
 }
 
 @define-color theme_fg_color #dddddd;
