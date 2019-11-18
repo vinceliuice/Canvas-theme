@@ -9,7 +9,7 @@ window.org-gnome-gedit {
     headerbar {
       background-color: $canvas_deep_purple;
 
-      button { @extend %header_theme_button; }
+      button:not(.titlebutton) { @extend %header_theme_button; }
     }
   }
 }
@@ -21,7 +21,24 @@ headerbar.titlebar.contacts-left-header-bar,
 headerbar.titlebar.contacts-right-header-bar {
   background-color: $canvas_indigo;
 
-  button { @extend %header_theme_button; }
+  button:not(.titlebutton) { @extend %header_theme_button; }
+}
+
+//
+// Gnome Control Center
+//
+window.background.csd {
+  > headerbar.titlebar > hdyleaflet {
+    > headerbar {
+      background-color: $canvas_deep_cyan;
+    }
+
+    > separator {
+      background-color: $canvas_deep_cyan;
+    }
+
+    button:not(.titlebutton) { @extend %header_theme_button; }
+  }
 }
 
 //
@@ -31,7 +48,9 @@ window.org-gnome-Calendar {
   headerbar.titlebar {
     background-color: $canvas_amber;
 
-    button { @extend %header_theme_button; }
+    button:not(.titlebutton) { @extend %header_theme_button; }
+
+    entry { @extend %header_theme_entry; }
   }
 }
 
@@ -56,7 +75,7 @@ window.workbench.org-gnome-Builder {
   headerbar {
     background-color: $canvas_blue;
 
-    button { @extend %header_theme_button; }
+    button:not(.titlebutton) { @extend %header_theme_button; }
   }
 }
 
@@ -67,29 +86,7 @@ window#gnome-system-monitor {
   headerbar.titlebar {
     background-color: $canvas_teal;
 
-    button { @extend %header_theme_button; }
-
-    button.titlebutton {
-      &.close, &.maximize, &.minimize { // csd windows control titlebuttons
-        color: transparent;
-
-        &:hover { color: $header_fg; }
-        &:active { color: rgba($header_fg, 0.5); }
-        &:backdrop { opacity: 0.5; }
-      }
-
-      &.minimize {
-        &, &:hover, &:active { background-color: rgba(black, 0.15); }
-      }
-
-      &.maximize {
-        &, &:hover, &:active { background-color: rgba(black, 0.25); }
-      }
-
-      &.close {
-        &, &:hover, &:active { background-color: rgba(black, 0.35); }
-      }
-    }
+    button:not(.titlebutton) { @extend %header_theme_button; }
   }
 }
 
@@ -100,7 +97,7 @@ window.org-gnome-Todo {
   headerbar.titlebar {
     background-color: $canvas_deep_orange;
 
-    button { @extend %header_theme_button; }
+    button:not(.titlebutton) { @extend %header_theme_button; }
   }
 }
 
@@ -111,7 +108,7 @@ window.dconf-editor {
   headerbar.titlebar {
     background-color: $canvas_purple;
 
-    button { @extend %header_theme_button; }
+    button:not(.titlebutton) { @extend %header_theme_button; }
   }
 }
 
@@ -121,38 +118,23 @@ window.dconf-editor {
 headerbar.titlebar.event_toolbar {
   background-color: $canvas_dark_yellow;
 
-  button { @extend %header_theme_button; }
+  button:not(.titlebutton) { @extend %header_theme_button; }
 }
 
 //
 // Geary
 //
 window#GearyMainWindow {
-  headerbar {
-    background-color: $canvas_green;
+  > .titlebar {
+    > headerbar {
+      background-color: $canvas_green;
 
-    button { @extend %header_theme_button; }
+      button:not(.titlebutton) { @extend %header_theme_button; }
+    }
 
-    button.titlebutton {
-      &.close, &.maximize, &.minimize { // csd windows control titlebuttons
-        color: transparent;
-
-        &:hover { color: $header_fg; }
-        &:active { color: rgba($header_fg, 0.5); }
-        &:backdrop { opacity: 0.5; }
-      }
-
-      &.minimize {
-        &, &:hover, &:active { background-color: rgba(black, 0.15); }
-      }
-
-      &.maximize {
-        &, &:hover, &:active { background-color: rgba(black, 0.25); }
-      }
-
-      &.close {
-        &, &:hover, &:active { background-color: rgba(black, 0.35); }
-      }
+    > separator {
+      background-image: none;
+      background-color: $canvas_green;
     }
   }
 }

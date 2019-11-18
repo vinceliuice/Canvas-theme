@@ -37,7 +37,7 @@ terminal-window,
   border: none;
   border-radius: 2px;
   border-image: radial-gradient(circle closest-corner at center calc(100% - 1px),
-                                $selected_bg_color 0%,
+                                transparent 0%,
                                 transparent 0%)
                                 0 0 0 / 0 0 0;
 
@@ -457,6 +457,32 @@ window.background.csd {
       border-left-width: 0;
       border-bottom-width: 0;
     }
+  }
+}
+
+//
+//  Gnome Control Center
+//
+window.background.csd {
+  > box.horizontal > stack.background > widget {
+    > scrolledwindow.frame {
+      border: none; // Remove ubuntu-dock setting page border
+    }
+  }
+
+  > headerbar.titlebar { // gnome 3.32
+    > box.horizontal > separator.sidebar,
+    > hdyleaflet > separator.sidebar {
+      min-width: 0;
+      border: none;
+      margin: 0;
+    }
+  }
+
+  > box.horizontal > separator.sidebar,
+  > hdyleaflet > separator.sidebar {
+    background: none;
+    min-width: 0;
   }
 }
 

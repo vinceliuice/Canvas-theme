@@ -1307,6 +1307,17 @@ headerbar {
   }
 }
 
+%header_theme_entry {
+  border: none;
+  background-color: rgba($header_fg, 0.15);
+
+  &:focus {
+    background-color: rgba($header_fg, 0.25);
+
+    image { color: $header_fg; }
+  }
+}
+
 %header_button {
   @include button(header-normal);
 
@@ -1326,16 +1337,32 @@ headerbar {
 %header_theme_button {
   @include button(header-theme-normal);
   &:hover { @include button(header-theme-hover); }
-  &:active, &:checked { @include button(header-theme-active); }
+  &:active { @include button(header-theme-active); }
+  &:checked { @include button(header-theme-checked); }
   &:disabled { @include button(header-theme-insensitive); }
   &:disabled:active, &:disabled:checked { @include button(header-theme-insensitive-active); }
 
   .linked.stack-switcher & {
-    background-color: rgba(white, 0.15);
-    &:hover { background-color: rgba(white, 0.22); }
-    &:active, &:checked { background-color: rgba(white, 0.3); }
-    &:disabled { background-color: rgba(white, 0.08); }
-    &:disabled:active, &:disabled:checked { background-color: rgba(white, 0.15); }
+    border-image: radial-gradient(circle closest-corner at center calc(100% - 1px),
+                                  transparent 0%,
+                                  transparent 0%)
+                                  0 0 0 / 0 0 0;
+
+    &:active, &:checked {
+      background-color: transparent;
+      border-image: radial-gradient(circle closest-corner at center calc(100% - 1px),
+                                    white 100%,
+                                    transparent 0%)
+                                    0 0 2 / 0 0 2px;
+    }
+
+    &:checked:disabled {
+      background-color: transparent;
+      border-image: radial-gradient(circle closest-corner at center calc(100% - 1px),
+                                    rgba(white, 0.5) 100%,
+                                    transparent 0%)
+                                    0 0 2 / 0 0 2px;
+    }
   }
 }
 
@@ -1776,9 +1803,10 @@ menubar,
   }
 }
 
+$_menu_bg: if($variant=='light', $base_color, $base_color);
+
 menu,
 .menu {
-  $_menu_bg: if($variant=='light', $base_color, $base_color);
   padding: 4px 0;
   border-radius: 0;
   background-color: $_menu_bg;
@@ -2845,10 +2873,21 @@ calendar {
 }
 
 messagedialog { // Message Dialog styling
+  decoration { // Windows shadows
+    box-shadow: 0 3px 5px 0 rgba(black, 0.24),
+                0 10px 10px 0 rgba(black, 0.16),
+                0 0 0 1px $borders_color;
+
+    &:backdrop {
+      box-shadow: 0 3px 5px 0 transparent, 0 10px 10px 0 transparent,
+                  0 3px 3px 0 rgba(black, 0.24),
+                  0 0 0 1px $borders_color;
+    }
+  }
 
   .titlebar {
     min-height: 20px;
-    background-color: $header_bg;
+    background-color: $bg_color;
     border-bottom: none;
     border-top-left-radius: $bt_radius;
     border-top-right-radius: $bt_radius;
@@ -3421,11 +3460,10 @@ $_wm_border: if($variant=='light', rgba(black, 0.15), rgba(black, 0.1));
 
 decoration { // Windows shadows
   border-radius: 0;
-  border: 2px solid if($header=='dark', $header_bg, rgba(#323232, 0.5));
-  border-top-width: if($header=='dark', 0, 2px);
-
+  border: none;
   box-shadow: 0 3px 5px 0 rgba(black, 0.24),
-              0 10px 10px 0 rgba(black, 0.16);
+              0 10px 10px 0 rgba(black, 0.16),
+              0 0 0 1px if($variant=='light' and $header=='dark', $borders_color, rgba($selected_bg_color, 0.85));
 
   // this is used for the resize cursor area
   margin: $cont_padding;
@@ -3434,43 +3472,50 @@ decoration { // Windows shadows
     // the transparent shadow here is to enforce that the shadow extents don't
     // change when we go to backdrop, to prevent jumping windows
     box-shadow: 0 3px 5px 0 transparent, 0 10px 10px 0 transparent,
-                0 3px 3px 0 rgba(black, 0.24);
+                0 3px 3px 0 rgba(black, 0.24),
+                0 0 0 1px if($variant=='light' and $header=='dark', $borders_color, rgba($selected_bg_color, 0.5));
     transition: $backdrop_transition;
-    border-color: if($header=='dark', $header_bg_backdrop, rgba(#555555, 0.65));
   }
+
   .fullscreen &,
   .tiled & {
     border-radius: 0;
     box-shadow: 0 3px 3px 0 rgba(black, 0.24);
   }
+
   // server-side decorations as used by mutter
   .ssd & {
     border-radius: 0;
     border: none;
-//    &.maximized { border-radius: 0; }
+    box-shadow: 0 0 0 1px rgba($selected_bg_color, 0.85);
+    // &.maximized { border-radius: 0; }
   }
+
   .popup & {
     border: none;
     border-radius: 0;
     box-shadow: none;
   }
+
   .csd.popup & {
     border: none;
     border-radius: 0;
     box-shadow: 0 3px 3px rgba(0, 0, 0, 0.18), 0 3px 5px rgba(0, 0, 0, 0.1), 0 0 0 1px $borders_color;
   }
+
   tooltip.csd & {
     border: none;
     border-radius: 2px;
     box-shadow: 0 1px 3px 0 rgba(black, 0.15);
   }
+
   messagedialog.csd & {
     border-radius: 3px;
     border: none;
   }
+
   .solid-csd & {
-    border: 2px solid if($header=='dark', $header_bg, darken($header_bg, 15%));
-    border-top-width: if($header=='dark', 2px, 2px);
+    border: 1px solid $selected_bg_color;
     border-radius: 0;
     margin: 0;
     background-color: $header_bg;
@@ -3486,7 +3531,7 @@ headerbar,
 .titlebar {
   > box.horizontal {
     &.left {
-      @each $class, $_left, $_right in ('.close', if($header=='dark', -12px, -10px), 0),
+      @each $class, $_left, $_right in ('.close', if($header=='dark', -10px, -10px), 0),
                                        ('.maximize', -6px, 0),
                                        ('.minimize', -6px, 0) {
         > button.titlebutton#{$class} {
@@ -3496,7 +3541,7 @@ headerbar,
     }
 
     &.right {
-      @each $class, $_left, $_right in ('.close', 0, if($header=='dark', -12px, -10px)),
+      @each $class, $_left, $_right in ('.close', 0, if($header=='dark', -10px, -10px)),
                                        ('.maximize', 0, -6px),
                                        ('.minimize', 0, -6px) {
         > button.titlebutton#{$class} {
@@ -3517,6 +3562,7 @@ headerbar,
     &:hover {
       @include button(header-hover);
     }
+
     &:active, &:checked {
       @include button(header-active);
     }
@@ -3536,41 +3582,44 @@ headerbar,
     }
 
     &.minimize {
-      &, &:hover, &:active { background-color: if($header=='dark', rgba(black, 0.15), rgba(black, 0.03)); }
+      &, &:hover { background-color: if($header=='dark', rgba(black, 0.15), rgba(black, 0.03)); }
+      &:active { background-color: if($header=='dark', rgba(black, 0.35), rgba(black, 0.1)); }
     }
 
     &.maximize {
-      &, &:hover, &:active { background-color: if($header=='dark', rgba(black, 0.30), rgba(black, 0.06)); }
+      &, &:hover { background-color: if($header=='dark', rgba(black, 0.30), rgba(black, 0.06)); }
+      &:active { background-color: if($header=='dark', rgba(black, 0.55), rgba(black, 0.15)); }
     }
 
     &.close {
-      &, &:hover, &:active { background-color: if($header=='dark', rgba(black, 0.45), rgba(black, 0.09)); }
+      &, &:hover { background-color: if($header=='dark', rgba(black, 0.45), rgba(black, 0.09)); }
+      &:active { background-color: if($header=='dark', rgba(black, 0.75), rgba(black, 0.2)); }
     }
   }
 
-  &.default-decoration {
-    > box.horizontal {
-      &.left {
-        @each $class, $_left, $_right in ('.close', 0, 0),
-                                         ('.maximize', 0, 0),
-                                         ('.minimize', 0, 0) {
-          > button.titlebutton#{$class} {
-            margin-left: #{$_left};
-          }
-        }
-      }
-
-      &.right {
-        @each $class, $_left, $_right in ('.close', 0, 0),
-                                         ('.maximize', 0, 0),
-                                         ('.minimize', 0, 0) {
-          > button.titlebutton#{$class} {
-            margin-right: #{$_right};
-          }
-        }
-      }
-    }
-  }
+  // &.default-decoration {
+  //   > box.horizontal {
+  //     &.left {
+  //       @each $class, $_left, $_right in ('.close', 0, 0),
+  //                                        ('.maximize', 0, 0),
+  //                                        ('.minimize', 0, 0) {
+  //         > button.titlebutton#{$class} {
+  //           margin-left: #{$_left};
+  //         }
+  //       }
+  //     }
+  //
+  //     &.right {
+  //       @each $class, $_left, $_right in ('.close', 0, 0),
+  //                                        ('.maximize', 0, 0),
+  //                                        ('.minimize', 0, 0) {
+  //         > button.titlebutton#{$class} {
+  //           margin-right: #{$_right};
+  //         }
+  //       }
+  //     }
+  //   }
+  // }
 }
 
 // catch all extend

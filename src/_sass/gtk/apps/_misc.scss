@@ -291,11 +291,11 @@ window.background:not(.csd) {
  /***************
   * Chrome(ium) *
   ***************/
-$chrome_borders_color: darken(white, 15%);
-$chrome_bg: #ffffff;
-$chrome_fg: #515151;
-$chrome_menu_bg: #ffffff;
-$chrome_menu_fg: #565656;
+$chrome_borders_color: $solid_borders_color;
+$chrome_bg: $bg_color;
+$chrome_fg: $fg_color;
+$chrome_menu_bg: $_menu_bg;
+$chrome_menu_fg: $fg_color;
 
 %circle_chrome {
   button.titlebutton {
@@ -350,7 +350,7 @@ window.background.chromium {
 
   // Fixed Atom/VS-code chromium based app menubar issues
   > menubar {
-    background-image: image($chrome_menu_bg);
+    background-image: image($header_bg);
   }
 
   > menu {

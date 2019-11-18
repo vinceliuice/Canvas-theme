@@ -257,6 +257,14 @@
   // pushed header-bar button
   //
     color: $selected_fg_color;
+    background-color: rgba(white, 0.35);
+  }
+
+  @else if $t==header-theme-checked {
+  //
+  // pushed header-bar button
+  //
+    color: $selected_fg_color;
     background-color: rgba(white, 0.25);
   }
 

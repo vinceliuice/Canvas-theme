@@ -71,6 +71,9 @@ install() {
   mkdir -p                                                                           ${THEME_DIR}/xfwm4
   cp -ur ${SRC_DIR}/src/xfwm4/themerc                                                ${THEME_DIR}/xfwm4/themerc
   cp -ur ${SRC_DIR}/src/xfwm4/assets/*.png                                           ${THEME_DIR}/xfwm4
+
+  mkdir -p                                                                           ${THEME_DIR}/plank
+  cp -ur ${SRC_DIR}/src/plank/dock.theme                                             ${THEME_DIR}/plank
 }
 
 while [[ $# -gt 0 ]]; do

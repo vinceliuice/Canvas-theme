@@ -1,10 +1,7 @@
 [Icon Theme]
-Name=Numix
-
+Name=Canvas
 Comment=Icon theme from Canvas
-
-Inherits=Numix-Circle,Numix,gnome,hicolor
-
+Inherits=Tela,Numix-Circle,Numix,gnome,hicolor
 Example=folder
 
 Directories=places
