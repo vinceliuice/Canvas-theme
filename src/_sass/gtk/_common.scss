@@ -3597,29 +3597,29 @@ headerbar,
     }
   }
 
-  // &.default-decoration {
-  //   > box.horizontal {
-  //     &.left {
-  //       @each $class, $_left, $_right in ('.close', 0, 0),
-  //                                        ('.maximize', 0, 0),
-  //                                        ('.minimize', 0, 0) {
-  //         > button.titlebutton#{$class} {
-  //           margin-left: #{$_left};
-  //         }
-  //       }
-  //     }
-  //
-  //     &.right {
-  //       @each $class, $_left, $_right in ('.close', 0, 0),
-  //                                        ('.maximize', 0, 0),
-  //                                        ('.minimize', 0, 0) {
-  //         > button.titlebutton#{$class} {
-  //           margin-right: #{$_right};
-  //         }
-  //       }
-  //     }
-  //   }
-  // }
+  &.default-decoration {
+    > box.horizontal {
+      &.left {
+        @each $class, $_left, $_right in ('.close', 0, 0),
+                                         ('.maximize', 0, 0),
+                                         ('.minimize', 0, 0) {
+          > button.titlebutton#{$class} {
+            margin-left: #{$_left};
+          }
+        }
+      }
+
+      &.right {
+        @each $class, $_left, $_right in ('.close', 0, 0),
+                                         ('.maximize', 0, 0),
+                                         ('.minimize', 0, 0) {
+          > button.titlebutton#{$class} {
+            margin-right: #{$_right};
+          }
+        }
+      }
+    }
+  }
 }
 
 // catch all extend

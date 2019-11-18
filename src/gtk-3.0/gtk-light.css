@@ -4695,6 +4695,42 @@ headerbar button.titlebutton.close:active,
   background-color: rgba(0, 0, 0, 0.2);
 }
 
+
+headerbar.default-decoration > box.horizontal.left > button.titlebutton.close,
+.titlebar.default-decoration > box.horizontal.left > button.titlebutton.close {
+  margin-left: 0;
+}
+
+
+headerbar.default-decoration > box.horizontal.left > button.titlebutton.maximize,
+.titlebar.default-decoration > box.horizontal.left > button.titlebutton.maximize {
+  margin-left: 0;
+}
+
+
+headerbar.default-decoration > box.horizontal.left > button.titlebutton.minimize,
+.titlebar.default-decoration > box.horizontal.left > button.titlebutton.minimize {
+  margin-left: 0;
+}
+
+
+headerbar.default-decoration > box.horizontal.right > button.titlebutton.close,
+.titlebar.default-decoration > box.horizontal.right > button.titlebutton.close {
+  margin-right: 0;
+}
+
+
+headerbar.default-decoration > box.horizontal.right > button.titlebutton.maximize,
+.titlebar.default-decoration > box.horizontal.right > button.titlebutton.maximize {
+  margin-right: 0;
+}
+
+
+headerbar.default-decoration > box.horizontal.right > button.titlebutton.minimize,
+.titlebar.default-decoration > box.horizontal.right > button.titlebutton.minimize {
+  margin-right: 0;
+}
+
 .view:selected, .view:selected:focus, textview text:selected, iconview:selected, window.thunar notebook scrolledwindow.frame.standard-view .view:selected, textview text selection:focus, textview text selection, flowbox flowboxchild:selected, entry selection:focus, entry selection, window.thunar .sidebar treeview.view:selected, treeview.view:selected:focus, row:selected, calendar:selected, .nemo-window .nemo-window-pane widget.entry:selected:focus, .nemo-window .nemo-window-pane widget.entry:selected, .caja-desktop > widget.entry:selected, .caja-desktop > widget.entry:focus:selected, #MozillaGtkWidget.background > widget > scrolledwindow > textview text:selected, #MozillaGtkWidget.background > widget > scrolledwindow > textview text:selected:focus,
 #MozillaGtkWidget.background > widget > scrolledwindow > textview text selection, .budgie-popover:not(.budgie-menu) button.flat:not(.image-button):active, .budgie-popover:not(.budgie-menu) button.sidebar-button:not(.image-button):active, .budgie-popover:not(.budgie-menu) button.budgie-menu-launcher:not(.image-button):active, .budgie-popover:not(.budgie-menu) .budgie-panel #tasklist-button:not(.image-button):active, .budgie-panel .budgie-popover:not(.budgie-menu) #tasklist-button:not(.image-button):active, .budgie-popover:not(.budgie-menu) button.flat:not(.image-button):active arrow, .budgie-popover:not(.budgie-menu) button.sidebar-button:not(.image-button):active arrow, .budgie-popover:not(.budgie-menu) button.budgie-menu-launcher:not(.image-button):active arrow, .budgie-popover:not(.budgie-menu) .budgie-panel #tasklist-button:not(.image-button):active arrow, .budgie-panel .budgie-popover:not(.budgie-menu) #tasklist-button:not(.image-button):active arrow, .budgie-popover:not(.budgie-menu) button.flat:not(.image-button):checked, .budgie-popover:not(.budgie-menu) button.sidebar-button:not(.image-button):checked, .budgie-popover:not(.budgie-menu) button.budgie-menu-launcher:not(.image-button):checked, .budgie-popover:not(.budgie-menu) .budgie-panel #tasklist-button:not(.image-button):checked, .budgie-panel .budgie-popover:not(.budgie-menu) #tasklist-button:not(.image-button):checked, .budgie-popover:not(.budgie-menu) button.flat:not(.image-button):checked arrow, .budgie-popover:not(.budgie-menu) button.sidebar-button:not(.image-button):checked arrow, .budgie-popover:not(.budgie-menu) button.budgie-menu-launcher:not(.image-button):checked arrow, .budgie-popover:not(.budgie-menu) .budgie-panel #tasklist-button:not(.image-button):checked arrow, .budgie-panel .budgie-popover:not(.budgie-menu) #tasklist-button:not(.image-button):checked arrow, .budgie-menu button:active, .budgie-menu button:checked {
   background-color: #5D7DFB;
