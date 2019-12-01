@@ -2,6 +2,7 @@
 // Some color theme stuff
 @mixin color_theme($entry_rules:'true',
                    $button_rules:'true',
+                   $scrollbar_rules:'true',
                    $theme_color:$selected_bg_color) {
   @if $entry_rules=='true' {
     entry, spinbutton:not(.vertical) {
@@ -44,6 +45,15 @@
 
     infobar button { @extend %selected-button; }
   }
+
+  @if $scrollbar_rules=='true' {
+    scrollbar {
+      slider {
+        &:hover:active { background-color: $theme_color; }
+      }
+    }
+  }
+
 }
 
 //
