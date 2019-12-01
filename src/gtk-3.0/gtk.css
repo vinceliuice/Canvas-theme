@@ -8934,7 +8934,12 @@ window.org-gnome-gedit entry:focus, window.org-gnome-gedit spinbutton:not(.verti
   border-color: #673AB7;
 }
 
-window.org-gnome-gedit button:not(.titlebutton):active, window.org-gnome-gedit button:not(.titlebutton):checked, popover window.org-gnome-gedit button:not(.titlebutton):active, popover window.org-gnome-gedit button:not(.titlebutton):checked {
+window.org-gnome-gedit button:not(.titlebutton):active, window.org-gnome-gedit button:not(.titlebutton):checked {
+  background-color: #673AB7;
+  border-color: #673AB7;
+}
+
+window.org-gnome-gedit popover button:not(.suggested-action):not(.destructive-action):active, window.org-gnome-gedit popover button:not(.suggested-action):not(.destructive-action):checked {
   background-color: #673AB7;
   border-color: #673AB7;
 }
@@ -8976,7 +8981,12 @@ window.background.csd > hdyleaflet > stack.background entry:focus, window.backgr
   border-color: #5E35B1;
 }
 
-window.background.csd > hdyleaflet > stack.background button:not(.titlebutton):active, window.background.csd > hdyleaflet > stack.background button:not(.titlebutton):checked, popover window.background.csd > hdyleaflet > stack.background button:not(.titlebutton):active, popover window.background.csd > hdyleaflet > stack.background button:not(.titlebutton):checked {
+window.background.csd > hdyleaflet > stack.background button:not(.titlebutton):active, window.background.csd > hdyleaflet > stack.background button:not(.titlebutton):checked {
+  background-color: #5E35B1;
+  border-color: #5E35B1;
+}
+
+window.background.csd > hdyleaflet > stack.background popover button:not(.suggested-action):not(.destructive-action):active, window.background.csd > hdyleaflet > stack.background popover button:not(.suggested-action):not(.destructive-action):checked {
   background-color: #5E35B1;
   border-color: #5E35B1;
 }
@@ -9037,7 +9047,12 @@ window.background.csd > hdyleaflet > box.vertical > stack.main-container entry:f
   border-color: #4769d2;
 }
 
-window.background.csd > hdyleaflet > box.vertical > stack.main-container button:not(.titlebutton):active, window.background.csd > hdyleaflet > box.vertical > stack.main-container button:not(.titlebutton):checked, popover window.background.csd > hdyleaflet > box.vertical > stack.main-container button:not(.titlebutton):active, popover window.background.csd > hdyleaflet > box.vertical > stack.main-container button:not(.titlebutton):checked {
+window.background.csd > hdyleaflet > box.vertical > stack.main-container button:not(.titlebutton):active, window.background.csd > hdyleaflet > box.vertical > stack.main-container button:not(.titlebutton):checked {
+  background-color: #4769d2;
+  border-color: #4769d2;
+}
+
+window.background.csd > hdyleaflet > box.vertical > stack.main-container popover button:not(.suggested-action):not(.destructive-action):active, window.background.csd > hdyleaflet > box.vertical > stack.main-container popover button:not(.suggested-action):not(.destructive-action):checked {
   background-color: #4769d2;
   border-color: #4769d2;
 }
@@ -9063,7 +9078,12 @@ window.org-gnome-Calendar entry:focus, window.org-gnome-Calendar spinbutton:not(
   border-color: #FF6F00;
 }
 
-window.org-gnome-Calendar button:not(.titlebutton):active, window.org-gnome-Calendar button:not(.titlebutton):checked, popover window.org-gnome-Calendar button:not(.titlebutton):active, popover window.org-gnome-Calendar button:not(.titlebutton):checked {
+window.org-gnome-Calendar button:not(.titlebutton):active, window.org-gnome-Calendar button:not(.titlebutton):checked {
+  background-color: #FF6F00;
+  border-color: #FF6F00;
+}
+
+window.org-gnome-Calendar popover button:not(.suggested-action):not(.destructive-action):active, window.org-gnome-Calendar popover button:not(.suggested-action):not(.destructive-action):checked {
   background-color: #FF6F00;
   border-color: #FF6F00;
 }
@@ -9092,7 +9112,12 @@ window#gnome-system-monitor entry:focus, window#gnome-system-monitor spinbutton:
   border-color: #188c75;
 }
 
-window#gnome-system-monitor button:not(.titlebutton):active, window#gnome-system-monitor button:not(.titlebutton):checked, popover window#gnome-system-monitor button:not(.titlebutton):active, popover window#gnome-system-monitor button:not(.titlebutton):checked {
+window#gnome-system-monitor button:not(.titlebutton):active, window#gnome-system-monitor button:not(.titlebutton):checked {
+  background-color: #188c75;
+  border-color: #188c75;
+}
+
+window#gnome-system-monitor popover button:not(.suggested-action):not(.destructive-action):active, window#gnome-system-monitor popover button:not(.suggested-action):not(.destructive-action):checked {
   background-color: #188c75;
   border-color: #188c75;
 }
@@ -9117,7 +9142,12 @@ window.org-gnome-Todo entry:focus, window.org-gnome-Todo spinbutton:not(.vertica
   border-color: #F4511E;
 }
 
-window.org-gnome-Todo button:not(.titlebutton):active, window.org-gnome-Todo button:not(.titlebutton):checked, popover window.org-gnome-Todo button:not(.titlebutton):active, popover window.org-gnome-Todo button:not(.titlebutton):checked {
+window.org-gnome-Todo button:not(.titlebutton):active, window.org-gnome-Todo button:not(.titlebutton):checked {
+  background-color: #F4511E;
+  border-color: #F4511E;
+}
+
+window.org-gnome-Todo popover button:not(.suggested-action):not(.destructive-action):active, window.org-gnome-Todo popover button:not(.suggested-action):not(.destructive-action):checked {
   background-color: #F4511E;
   border-color: #F4511E;
 }
@@ -9142,7 +9172,12 @@ window.dconf-editor entry:focus, window.dconf-editor spinbutton:not(.vertical):f
   border-color: #9C27B0;
 }
 
-window.dconf-editor button:not(.titlebutton):active, window.dconf-editor button:not(.titlebutton):checked, popover window.dconf-editor button:not(.titlebutton):active, popover window.dconf-editor button:not(.titlebutton):checked {
+window.dconf-editor button:not(.titlebutton):active, window.dconf-editor button:not(.titlebutton):checked {
+  background-color: #9C27B0;
+  border-color: #9C27B0;
+}
+
+window.dconf-editor popover button:not(.suggested-action):not(.destructive-action):active, window.dconf-editor popover button:not(.suggested-action):not(.destructive-action):checked {
   background-color: #9C27B0;
   border-color: #9C27B0;
 }
@@ -9171,7 +9206,12 @@ window#GearyMainWindow entry:focus, window#GearyMainWindow spinbutton:not(.verti
   border-color: #4CAF50;
 }
 
-window#GearyMainWindow button:not(.titlebutton):active, window#GearyMainWindow button:not(.titlebutton):checked, popover window#GearyMainWindow button:not(.titlebutton):active, popover window#GearyMainWindow button:not(.titlebutton):checked {
+window#GearyMainWindow button:not(.titlebutton):active, window#GearyMainWindow button:not(.titlebutton):checked {
+  background-color: #4CAF50;
+  border-color: #4CAF50;
+}
+
+window#GearyMainWindow popover button:not(.suggested-action):not(.destructive-action):active, window#GearyMainWindow popover button:not(.suggested-action):not(.destructive-action):checked {
   background-color: #4CAF50;
   border-color: #4CAF50;
 }

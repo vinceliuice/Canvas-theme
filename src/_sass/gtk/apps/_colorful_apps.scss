@@ -11,11 +11,16 @@
 
   @if $button_rules=='true' {
     button:not(.titlebutton) {
-      &, popover & {
-        &:active, &:checked {
-          background-color: $theme_color;
-          border-color: $theme_color;
-        }
+      &:active, &:checked {
+        background-color: $theme_color;
+        border-color: $theme_color;
+      }
+    }
+
+    popover button:not(.suggested-action):not(.destructive-action) {
+      &:active, &:checked {
+        background-color: $theme_color;
+        border-color: $theme_color;
       }
     }
 
