@@ -1,9 +1,51 @@
+
+// Some color theme stuff
+@mixin color_theme($entry_rules:'true',
+                   $button_rules:'true',
+                   $theme_color:$selected_bg_color) {
+  @if $entry_rules=='true' {
+    entry, spinbutton:not(.vertical) {
+      &:focus { border-color: $theme_color; }
+    }
+  }
+
+  @if $button_rules=='true' {
+    button:not(.titlebutton):not(.suggested-action):not(.destructive-action) {
+      &, popover & {
+        &:active, &:checked {
+          background-color: $theme_color;
+          border-color: $theme_color;
+        }
+      }
+    }
+
+    treeview.view {
+      header {
+        button {
+          &:active {
+            background-color: $overlay-active;
+            border-color: $borders_color;
+            background-clip: border-box;
+          }
+        }
+      }
+
+      button.dnd,
+      header.button.dnd {
+        background-color: $theme_color;
+        border-color: $theme_color;
+      }
+    }
+
+    infobar button { @extend %selected-button; }
+  }
+}
+
 //
 // Gedit
 //
 window.org-gnome-gedit {
   > paned.titlebar {
-
     > separator { background-image: image($canvas_deep_purple); }
 
     headerbar {
@@ -12,6 +54,8 @@ window.org-gnome-gedit {
       button:not(.titlebutton) { @extend %header_theme_button; }
     }
   }
+
+  @include color_theme($theme_color:$canvas_deep_purple);
 }
 
 //
@@ -39,6 +83,98 @@ window.background.csd {
 
     button:not(.titlebutton) { @extend %header_theme_button; }
   }
+
+  > hdyleaflet > stack.background {
+    @include color_theme($theme_color:$canvas_deep_cyan);
+
+    scale {
+      highlight {
+        background-color: $canvas_deep_cyan;
+
+        &:disabled { background-color: transparentize($canvas_deep_cyan, 0.45); }
+      }
+
+      fill {
+        background-color: transparentize($canvas_deep_cyan, 0.5);
+      }
+
+      slider {
+        &:hover {
+          background-color: lighten($canvas_deep_cyan, 3%);
+          border-color: lighten($canvas_deep_cyan, 3%);
+        }
+
+        &:active {
+          background-color: darken($canvas_deep_cyan, 3%);
+          border-color: darken($canvas_deep_cyan, 3%);
+        }
+      }
+    }
+  }
+
+  > hdyleaflet > box.vertical {
+    > scrolledwindow.view > viewport.frame {
+      > stack, > stack > box.vertical {
+        > list > row.activatable {
+          &:active {
+            border-image: radial-gradient(circle closest-corner at center calc(100% - 1px),
+                                          transparent 90%,
+                                          $canvas_deep_cyan 100%)
+                                          0 0 0 2 / 0 0 0 2px;
+          }
+
+          &:selected {
+            box-shadow: inset 2px 0 $canvas_deep_cyan;
+          }
+        }
+      }
+    }
+  }
+}
+
+//
+// Gnome Tweak Tool
+//
+window.background.csd {
+  > hdyleaflet.titlebar {
+    > headerbar.titlebar.tweak-titlebar-left,
+    > headerbar.titlebar.tweak-titlebar-right {
+      background-color: $canvas_dark_cyan;
+
+      button:not(.titlebutton) { @extend %header_theme_button; }
+    }
+
+    headerbar.titlebar.tweak-titlebar-right {
+      box-shadow: -1px 0 $canvas_dark_cyan;
+    }
+
+    > separator {
+      background-color: $canvas_dark_cyan;
+    }
+  }
+
+  > hdyleaflet > box.vertical {
+    > stack.main-container {
+      @include color_theme($theme_color:$canvas_dark_cyan);
+    }
+
+    > scrolledwindow > viewport.frame {
+      > list.tweak-categories {
+        > row.activatable.tweak-category {
+          &:active {
+            border-image: radial-gradient(circle closest-corner at center calc(100% - 1px),
+                                          transparent 90%,
+                                          $canvas_dark_cyan 100%)
+                                          0 0 0 2 / 0 0 0 2px;
+          }
+
+          &:selected {
+            box-shadow: inset 2px 0 $canvas_dark_cyan;
+          }
+        }
+      }
+    }
+  }
 }
 
 //
@@ -52,20 +188,8 @@ window.org-gnome-Calendar {
 
     entry { @extend %header_theme_entry; }
   }
-}
 
-//
-// Gnome Tweak Tool
-//
-headerbar.titlebar.tweak-titlebar-left,
-headerbar.titlebar.tweak-titlebar-right {
-  background-color: $canvas_dark_cyan;
-
-  button { @extend %header_theme_button; }
-}
-
-headerbar.titlebar.tweak-titlebar-right {
-  box-shadow: -1px 0 $canvas_dark_cyan;
+  @include color_theme($theme_color:$canvas_amber);
 }
 
 //
@@ -88,6 +212,8 @@ window#gnome-system-monitor {
 
     button:not(.titlebutton) { @extend %header_theme_button; }
   }
+
+  @include color_theme($theme_color:$canvas_teal);
 }
 
 //
@@ -99,6 +225,8 @@ window.org-gnome-Todo {
 
     button:not(.titlebutton) { @extend %header_theme_button; }
   }
+
+  @include color_theme($theme_color:$canvas_deep_orange);
 }
 
 //
@@ -110,6 +238,8 @@ window.dconf-editor {
 
     button:not(.titlebutton) { @extend %header_theme_button; }
   }
+
+  @include color_theme($theme_color:$canvas_purple);
 }
 
 //
@@ -137,4 +267,6 @@ window#GearyMainWindow {
       background-color: $canvas_green;
     }
   }
+
+  @include color_theme($theme_color:$canvas_green);
 }

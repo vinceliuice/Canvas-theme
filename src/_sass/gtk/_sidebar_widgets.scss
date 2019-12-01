@@ -144,40 +144,6 @@ filechooser {
   }
 }
 
-// Gedit
-.gedit-bottom-panel-paned { background-color: $base_color; }
-
-.gedit-side-panel-paned > separator { background-image: _solid($dark_sidebar_border); }
-.gedit-bottom-panel-paned > separator { background-image: _solid($borders_color); }
-
-.gedit-document-panel {
-  background-color: $dark_sidebar_bg;
-
-  .maximized & { background-color: opacify($dark_sidebar_bg, 1); }
-
-  row {
-    color: $dark_sidebar_fg;
-    background-color: transparentize($dark_sidebar_fg, 1);
-
-    &:hover {
-      background-color: transparentize($dark_sidebar_fg, 0.85);
-    }
-    &:active {
-      color: $selected_fg_color;
-      background-color: $selected_bg_color;
-
-      button { color: $selected_fg_color; }
-    }
-    &:selected, &:selected:hover {
-      color: $selected_fg_color;
-      background-color: $selected_bg_color;
-    }
-    &:hover:not(:selected) button:active {
-      color: $dark_sidebar_fg;
-    }
-  }
-}
-
 %dark_sidebar_button {
   @include button(normal);
 

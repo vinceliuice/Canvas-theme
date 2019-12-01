@@ -42,6 +42,13 @@ $sec_bg_color: if($variant == 'light', darken($bg_color, 10%), lighten($bg_color
 $alt_fg_color: rgba($fg_color, 0.75);
 $sec_fg_color: rgba($fg_color, 0.6);
 
+$overlay-hover:                         rgba($fg_color, 0.08);
+$overlay-focus:                         rgba($fg_color, 0.08);
+$overlay-focus-hover:                   rgba($fg_color, 0.16);
+$overlay-active:                        rgba($fg_color, 0.12);
+$overlay-checked:                       rgba($fg_color, 0.10);
+$overlay-selected:                      rgba($fg_color, 0.06);
+
 $selected_fg_color: white;
 $selected_bg_color: $canvas_cyan;
 $accent_color: $canvas_sea_green;

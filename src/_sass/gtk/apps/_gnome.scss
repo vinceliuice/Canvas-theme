@@ -464,11 +464,11 @@ window.background.csd {
 //  Gnome Control Center
 //
 window.background.csd {
-  > box.horizontal > stack.background > widget {
-    > scrolledwindow.frame {
-      border: none; // Remove ubuntu-dock setting page border
-    }
-  }
+  // > box.horizontal > stack.background > widget {
+  //   > scrolledwindow.frame {
+  //     border: none; // Remove ubuntu-dock setting page border
+  //   }
+  // }
 
   > headerbar.titlebar { // gnome 3.32
     > box.horizontal > separator.sidebar,
