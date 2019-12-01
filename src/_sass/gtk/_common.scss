@@ -462,6 +462,7 @@ button {
       &:active, &:checked { @include button(osd-active); }
     }
   }
+
   .osd .linked:not(.vertical):not(.path-bar) > &:hover:not(:checked):not(:active):not(:only-child),
   .osd .linked:not(.vertical):not(.path-bar) > &:hover:not(:checked):not(:active) + &:not(:checked):not(:active) { box-shadow: none; }
 
@@ -640,6 +641,7 @@ toolbar.inline-toolbar toolbutton {
         + combobox > box > button.combo { border-#{$_border}-color: $e_color; }
       }
     }
+
     > button:active + entry,
     > button:checked + entry { border-#{$_border}-color: $selected_bg_color; }
   }
@@ -755,9 +757,7 @@ toolbar.inline-toolbar toolbutton {
 
   > button:hover:not(:checked):not(:active):not(:only-child) {
 
-//    &:hover {
-//      box-shadow: none;
-//    }
+    // &:hover { box-shadow: none; }
 
     &:first-child:hover { box-shadow: none; }
     &:last-child:hover { box-shadow: none; }
@@ -3481,7 +3481,7 @@ decoration { // Windows shadows
   border: none;
   box-shadow: 0 3px 5px 0 rgba(black, 0.24),
               0 10px 10px 0 rgba(black, 0.16),
-              0 0 0 1px if($variant=='light' and $header=='dark', $borders_color, rgba($selected_bg_color, 0.85));
+              0 0 0 1px if($variant=='light' and $header=='dark', $borders_color, $decoration_color);
 
   // this is used for the resize cursor area
   margin: $cont_padding;
@@ -3491,7 +3491,7 @@ decoration { // Windows shadows
     // change when we go to backdrop, to prevent jumping windows
     box-shadow: 0 3px 5px 0 transparent, 0 10px 10px 0 transparent,
                 0 3px 3px 0 rgba(black, 0.24),
-                0 0 0 1px if($variant=='light' and $header=='dark', $borders_color, rgba($selected_bg_color, 0.5));
+                0 0 0 1px if($variant=='light' and $header=='dark', $borders_color, $decoration_color);
     transition: $backdrop_transition;
   }
 
@@ -3669,7 +3669,7 @@ popover.emoji-picker {
     box-shadow: none;
     border-width: 0 0 1px 0;
     padding: 4px 12px;
-//    margin: 2px 0 0 0;
+    // margin: 2px 0 0 0;
   }
 
   scrolledwindow { border-bottom: 1px solid $borders_color; }

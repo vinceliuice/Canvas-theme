@@ -77,6 +77,7 @@ $alt_borders_color: if($variant == 'light', rgba(black, 0.08), rgba(black, 0.1))
 $solid_borders_color: if($variant == 'light', darken($bg_color, 15%), darken($bg_color, 2%));
 $highlight: if($variant == 'light', rgba(white, 0.13), rgba(white, 0.10));
 $alt_highlight_color: rgba(white, 0.2);
+$decoration_color: rgba($selected_bg_color, 0.85);
 
 $link_color: if($variant == 'light', $canvas_blue, $canvas_light_blue);
 $link_visited_color: if($variant == 'light', darken($text_color, 5%), lighten($text_color, 10%));

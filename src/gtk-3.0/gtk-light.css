@@ -4530,7 +4530,7 @@ decoration {
 }
 
 decoration:backdrop {
-  box-shadow: 0 3px 5px 0 transparent, 0 10px 10px 0 transparent, 0 3px 3px 0 rgba(0, 0, 0, 0.24), 0 0 0 1px rgba(93, 125, 251, 0.5);
+  box-shadow: 0 3px 5px 0 transparent, 0 10px 10px 0 transparent, 0 3px 3px 0 rgba(0, 0, 0, 0.24), 0 0 0 1px rgba(93, 125, 251, 0.85);
   transition: 200ms ease-out;
 }
 
