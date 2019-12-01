@@ -1353,11 +1353,18 @@ headerbar {
                                   0 0 0 / 0 0 0;
 
     &:active, &:checked {
-      background-color: transparent;
       border-image: radial-gradient(circle closest-corner at center calc(100% - 1px),
                                     white 100%,
                                     transparent 0%)
                                     0 0 2 / 0 0 2px;
+    }
+
+    &:active {
+      background-color: rgba(white, 0.25);
+    }
+
+    &:checked {
+      background-color: transparent;
     }
 
     &:checked:disabled {
