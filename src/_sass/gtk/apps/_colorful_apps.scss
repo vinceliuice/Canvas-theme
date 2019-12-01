@@ -10,7 +10,7 @@
   }
 
   @if $button_rules=='true' {
-    button:not(.titlebutton):not(.suggested-action):not(.destructive-action) {
+    button:not(.titlebutton):not(.suggested-action):not(.destructive-action):not(.small-button) {
       &, popover & {
         &:active, &:checked {
           background-color: $theme_color;
@@ -45,17 +45,17 @@
 // Gedit
 //
 window.org-gnome-gedit {
+  @include color_theme($theme_color:$canvas_deep_purple);
+
   > paned.titlebar {
     > separator { background-image: image($canvas_deep_purple); }
 
-    headerbar {
+    > headerbar {
       background-color: $canvas_deep_purple;
 
-      button:not(.titlebutton) { @extend %header_theme_button; }
+      > button:not(.titlebutton):not(.suggested-action):not(.destructive-action) { @extend %header_theme_button; }
     }
   }
-
-  @include color_theme($theme_color:$canvas_deep_purple);
 }
 
 //
@@ -65,7 +65,7 @@ headerbar.titlebar.contacts-left-header-bar,
 headerbar.titlebar.contacts-right-header-bar {
   background-color: $canvas_indigo;
 
-  button:not(.titlebutton) { @extend %header_theme_button; }
+  button:not(.titlebutton):not(.suggested-action):not(.destructive-action) { @extend %header_theme_button; }
 }
 
 //
@@ -81,7 +81,7 @@ window.background.csd {
       background-color: $canvas_deep_cyan;
     }
 
-    button:not(.titlebutton) { @extend %header_theme_button; }
+    button:not(.titlebutton):not(.suggested-action):not(.destructive-action) { @extend %header_theme_button; }
   }
 
   > hdyleaflet > stack.background {
@@ -137,7 +137,7 @@ window.background.csd {
     > headerbar.titlebar.tweak-titlebar-right {
       background-color: $canvas_dark_cyan;
 
-      button:not(.titlebutton) { @extend %header_theme_button; }
+      button:not(.titlebutton):not(.suggested-action):not(.destructive-action) { @extend %header_theme_button; }
     }
 
     headerbar.titlebar.tweak-titlebar-right {
@@ -173,15 +173,15 @@ window.background.csd {
 // Gnome Calender
 //
 window.org-gnome-Calendar {
+  @include color_theme($theme_color:$canvas_amber);
+
   headerbar.titlebar {
     background-color: $canvas_amber;
 
-    button:not(.titlebutton) { @extend %header_theme_button; }
+    button:not(.titlebutton):not(.suggested-action):not(.destructive-action) { @extend %header_theme_button; }
 
     entry { @extend %header_theme_entry; }
   }
-
-  @include color_theme($theme_color:$canvas_amber);
 }
 
 //
@@ -191,7 +191,7 @@ window.workbench.org-gnome-Builder {
   headerbar {
     background-color: $canvas_blue;
 
-    button:not(.titlebutton) { @extend %header_theme_button; }
+    button:not(.titlebutton):not(.suggested-action):not(.destructive-action) { @extend %header_theme_button; }
   }
 }
 
@@ -199,39 +199,39 @@ window.workbench.org-gnome-Builder {
 // Gnome-system-monitor
 //
 window#gnome-system-monitor {
-  headerbar.titlebar {
+  @include color_theme($theme_color:$canvas_teal);
+
+  > headerbar.titlebar {
     background-color: $canvas_teal;
 
-    button:not(.titlebutton) { @extend %header_theme_button; }
+    button:not(.titlebutton):not(.suggested-action):not(.destructive-action) { @extend %header_theme_button; }
   }
-
-  @include color_theme($theme_color:$canvas_teal);
 }
 
 //
 // Gnome-Todo
 //
 window.org-gnome-Todo {
+  @include color_theme($theme_color:$canvas_deep_orange);
+
   headerbar.titlebar {
     background-color: $canvas_deep_orange;
 
-    button:not(.titlebutton) { @extend %header_theme_button; }
+    button:not(.titlebutton):not(.suggested-action):not(.destructive-action) { @extend %header_theme_button; }
   }
-
-  @include color_theme($theme_color:$canvas_deep_orange);
 }
 
 //
 // Dconf-editor
 //
 window.dconf-editor {
+  @include color_theme($theme_color:$canvas_purple);
+
   headerbar.titlebar {
     background-color: $canvas_purple;
 
-    button:not(.titlebutton) { @extend %header_theme_button; }
+    button:not(.titlebutton):not(.suggested-action):not(.destructive-action) { @extend %header_theme_button; }
   }
-
-  @include color_theme($theme_color:$canvas_purple);
 }
 
 //
@@ -240,18 +240,20 @@ window.dconf-editor {
 headerbar.titlebar.event_toolbar {
   background-color: $canvas_dark_yellow;
 
-  button:not(.titlebutton) { @extend %header_theme_button; }
+  button:not(.titlebutton):not(.suggested-action):not(.destructive-action) { @extend %header_theme_button; }
 }
 
 //
 // Geary
 //
 window#GearyMainWindow {
+  @include color_theme($theme_color:$canvas_green);
+
   > .titlebar {
     > headerbar {
       background-color: $canvas_green;
 
-      button:not(.titlebutton) { @extend %header_theme_button; }
+      button:not(.titlebutton):not(.suggested-action):not(.destructive-action) { @extend %header_theme_button; }
     }
 
     > separator {
@@ -259,6 +261,4 @@ window#GearyMainWindow {
       background-color: $canvas_green;
     }
   }
-
-  @include color_theme($theme_color:$canvas_green);
 }
