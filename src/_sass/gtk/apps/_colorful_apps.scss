@@ -10,7 +10,7 @@
   }
 
   @if $button_rules=='true' {
-    button:not(.titlebutton):not(.suggested-action):not(.destructive-action):not(.small-button) {
+    button:not(.titlebutton) {
       &, popover & {
         &:active, &:checked {
           background-color: $theme_color;
@@ -53,7 +53,7 @@ window.org-gnome-gedit {
     > headerbar {
       background-color: $canvas_deep_purple;
 
-      > button:not(.titlebutton):not(.suggested-action):not(.destructive-action) { @extend %header_theme_button; }
+      button:not(.titlebutton):not(.suggested-action):not(.destructive-action) { @extend %header_theme_button; }
     }
   }
 }
