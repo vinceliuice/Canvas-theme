@@ -65,7 +65,7 @@ button.gtkstyle-fallback { // For Cinnamon system setting
 
   &:selected {
     &, &:focus {
-      @extend %light_selected_items;
+      @extend %selected_items;
       border-radius: 2px;
     }
   }
