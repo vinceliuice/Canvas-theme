@@ -239,16 +239,16 @@ $disk_space_free: darken($bg_color, 3%);
   &.bottom.left { border-top-left-radius: 0; }
   &.bottom.right { border-top-right-radius: 0; }
 
-    button {
-        border: none;
-        border-radius: 100px;
-        min-height: 0;
-        min-width: 0;
-        padding: 0;
-        margin-right: 6px;
-        -gtk-icon-shadow: none;
-        @extend %selected-button;
-    }
+  button {
+    border: none;
+    border-radius: 100px;
+    min-height: 0;
+    min-width: 0;
+    padding: 0;
+    margin-right: 6px;
+    -gtk-icon-shadow: none;
+    @extend %selected-button;
+  }
 }
 
 //
@@ -273,10 +273,10 @@ $disk_space_free: darken($bg_color, 3%);
 }
 
 .open-document-selector-path-label {
-    color: mix($fg_color, $base_color, 50%);
-    font-size: smaller;
+  color: mix($fg_color, $base_color, 50%);
+  font-size: smaller;
 
-    &:selected { color: transparentize($selected_fg_color, 0.1); }
+  &:selected { color: transparentize($selected_fg_color, 0.1); }
 }
 
 .gedit-document-panel {
@@ -339,14 +339,6 @@ $disk_space_free: darken($bg_color, 3%);
     &:dir(rtl) { border-right-width: 1px; }
   }
 }
-
-//
-// Epiphany
-//
-
-//EphyWindow .floating-bar { // Epiphany overrides the floating-bar style, so reset it
-//  color: $fg_color;
-//}
 
 //
 // gnome-sound-recorder
