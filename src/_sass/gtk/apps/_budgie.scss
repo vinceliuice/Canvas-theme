@@ -32,30 +32,30 @@
     background-color: rgba(white, 0.05);
     color: rgba($selected_fg_color, 0.65);
   }
+}
 
-  &.flat {
-    color: $panel_fg;
+%budgie_button_flat {
+  color: $panel_fg;
+  background: none;
+  &:hover {
+    color: $selected_fg_color;
+    background-color: rgba(white, 0.15);
+  }
+  &:disabled {
+    color: rgba($panel_fg, 0.5);
     background: none;
-    &:hover {
-      color: $selected_fg_color;
-      background-color: rgba(white, 0.15);
-    }
-    &:disabled {
-      color: rgba($panel_fg, 0.5);
-      background: none;
-    }
-    &:active {
-      background-color: rgba(white, 0.3);
-      color: $selected_fg_color;
-    }
-    &:checked {
-      background-color: rgba(white, 0.2);
-      color: $selected_fg_color;
-    }
-    &:checked:disabled {
-      background-color: rgba(white, 0.1);
-      color: rgba($selected_fg_color, 0.65);
-    }
+  }
+  &:active {
+    background-color: rgba(white, 0.3);
+    color: $selected_fg_color;
+  }
+  &:checked {
+    background-color: rgba(white, 0.2);
+    color: $selected_fg_color;
+  }
+  &:checked:disabled {
+    background-color: rgba(white, 0.1);
+    color: rgba($selected_fg_color, 0.65);
   }
 }
 
@@ -89,7 +89,7 @@
     background-color: transparent;
 
     &:hover { box-shadow: none; }
-    @extend row.activatable;
+    @extend %row_activatable;
   }
 
   switch { margin-left: 56px; }
@@ -122,16 +122,6 @@
     .container { padding: 8px; }
 
     separator { margin: 4px 0; background-color: $borders_color; }
-
-    // top-row (user-name and avatar)
-//    > frame.container > box.vertical row.activatable:first-child {
-//
-//      .indicator-item {
-//        border: 1px solid $sec_selected_bg_color;
-//        background-color: $selected_bg_color;
-//        &, arrow { @extend %selected_items; }
-//      }
-//    }
   }
 
   &.sound-popover {
@@ -266,7 +256,7 @@ window.budgie-popover:not(.csd) {
   }
 
   button {
-    @extend row.activatable;
+    @extend %row_activatable;
 
     min-height: 32px;
     padding: 0 8px;
@@ -292,7 +282,7 @@ window.budgie-popover:not(.csd) {
 // Menu Button
 button.budgie-menu-launcher {
   // padding: 0 2px;
-  @extend button.flat;
+  @include button(undecorated);
 }
 
 // User Menu
@@ -398,8 +388,8 @@ popover.background.places-menu {
   #tasklist-button {
     padding: 0 4px;
     @extend %underscores;
-    @extend button.flat;
     @extend %budgie_button;
+    @include button(undecorated);
     box-shadow: none;
   }
 
@@ -409,7 +399,7 @@ popover.background.places-menu {
   button.flat.launcher {
     padding: 0;
     @extend %underscores;
-    @extend button.flat;
+    @include button(undecorated);
 
     // for indicator colors
     &:not(:checked) {
@@ -675,10 +665,10 @@ button.raven-trigger {
     grid > label:first-child { min-height: 26px; } // workaround to fix vertical-align
 
     // for <10.4
-    spinbutton:not(.vertical) { @extend entry.flat; }
+    spinbutton:not(.vertical) { @extend %entry_flat; }
 
     // for <10.4
-    button.combo { }
+    // button.combo { }
   }
 
   scrolledwindow.raven-background { border-bottom-style: none; }
@@ -725,7 +715,7 @@ calendar.raven-calendar {
   button.image-button {
     padding: 6px;
     border: none;
-    @extend %budgie_button.flat;
+    @extend %budgie_button_flat;
   }
 }
 

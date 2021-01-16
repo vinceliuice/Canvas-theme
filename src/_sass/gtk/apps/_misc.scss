@@ -2,13 +2,11 @@
 //
 // Nemo
 //
-.nemo-desktop.nemo-canvas-item { @extend .nautilus-desktop.nautilus-canvas-item; }
-
 .nemo-window {
   .nemo-places-sidebar {
     &.frame { border-width: 0; }
     .places-treeview {
-      @extend row.activatable;
+      @extend %row_activatable;
     }
   }
 
@@ -96,8 +94,6 @@
 //
 // Caja
 //
-.caja-desktop { @extend .nautilus-desktop.nautilus-canvas-item; }
-
 .caja-notebook { border-top: 1px solid $borders_color; }
 .caja-side-pane .frame { border-width: 1px 0 0; }
 .caja-notebook .frame { border-width: 0 0 1px; }
@@ -109,8 +105,6 @@
 }
 
 .caja-desktop { // desktop icon-grid styling
-  &.caja-canvas-item { @extend .nautilus-desktop.nautilus-canvas-item; }
-
   > widget.entry { // = EelEditableLabel.entry
     &, &:focus {
       transition: none;

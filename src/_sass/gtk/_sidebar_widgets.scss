@@ -119,7 +119,7 @@ filechooser paned > separator { background-image: _solid($dark_sidebar_border); 
 
   > box button {
     &:not(:active):not(:checked) { color: $dark_sidebar_fg; }
-    &:hover:not(:active) { @extend %dark_sidebar_button:hover; }
+    &:hover:not(:active) { @include button(hover); }
   }
 
   .frame { border-color: $solid_borders_color; }
